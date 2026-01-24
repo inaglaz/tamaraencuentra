@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tamara Encuentra - Equipo &amp; Fundadora</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&amp;family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#cfaa68",
+            "primary-light": "#f0e6d2",
+            "background-light": "#fcfbf9",
+            "background-dark": "#1c1a16",
+            "accent-sage": "#aeb5a3",
+            "accent-blush": "#ebdcd6",
+            "stone-dark": "#36322d",
+            "text-main": "#2b261f"
+          },
+          fontFamily: {
+            "sans": ["Poppins", "sans-serif"],
+            "display": ["Poppins", "sans-serif"],
+            "body": ["Poppins", "sans-serif"],
+            "handwriting": ["Caveat", "cursive"],
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "2rem",
+            "3xl": "2.5rem",
+            "4xl": "3.5rem",
+            "full": "9999px"
+          },
+          boxShadow: {
+            "soft": "0 10px 40px -10px rgba(0,0,0,0.08)",
+            "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+            "float": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          },
+          animation: {
+            'pulse-sage': 'pulseSage 3s infinite',
+            'draw-underline': 'drawUnderline 1.5s ease-out forwards',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'scribble': 'scribble 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            pulseSage: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(174, 181, 163, 0)', borderColor: 'rgba(207, 170, 104, 0.2)' },
+              '50%': { boxShadow: '0 0 20px 0 rgba(174, 181, 163, 0.3)', borderColor: '#aeb5a3' },
+            },
+            drawUnderline: {
+              '0%': { width: '0%' },
+              '100%': { width: '100%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scribble: {
+               '0%': { transform: 'skew(1deg)' },
+               '100%': { transform: 'skew(-1deg)' }
+            }
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-nav {
+      background: rgba(252, 251, 249, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .glass-card {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .glass-pill {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(to right, #2b261f, #cfaa68);
+    }.app-hover {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .app-hover:hover {
+        transform: scale(1.03);
+    }.pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    .underline-brush {
+        position: absolute;
+        bottom: 0.1em;
+        left: 0;
+        height: 0.4em;
+        background-color: rgba(207, 170, 104, 0.4);
+        z-index: -1;
+        transform: skew(-10deg) rotate(-1deg);
+        border-radius: 4px;
+        width: 100%;
+    }
+    .marker-highlight {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+    }
+    .marker-highlight::before {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: -2px;
+        right: -2px;
+        height: 12px;
+        background-color: #f0e6d2;
+        z-index: -1;
+        transform: rotate(-1deg);
+        border-radius: 4px;
+        opacity: 0.7;
+    }
+    .polaroid {
+        background: white;
+        padding: 1rem;
+        padding-bottom: 3rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+    }
+    .polaroid:hover {
+        transform: scale(1.02) rotate(0deg) !important;
+        z-index: 10;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .video-hero {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }.hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(252, 251, 249, 0.75);
+        z-index: -1;
+        backdrop-filter: blur(2px);
+    }
+    .snap-mandatory-x {
+        scroll-snap-type: x mandatory;
+    }
+    .snap-center {
+        scroll-snap-align: center;
+    }
+    @media (max-width: 768px) {
+        .mobile-hero-container {
+            min-height: 85svh;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));
+            padding-top: 7rem;
+        }
+        .video-hero {
+            display: none;}
+        .hero-bg-mobile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            background-color: #fcfbf9;}
+        .hero-overlay-mobile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;z-index: -1;
+        }.glass-nav {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-bottom: none !important;
+        }
+    }
+    @media (min-width: 769px) {
+        .hero-bg-mobile, .hero-overlay-mobile {
+            display: none;
+        }
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main overflow-x-hidden antialiased selection:bg-primary/20 pb-20 md:pb-0">
+<nav class="fixed top-0 left-0 right-0 z-50 w-full glass-nav border-b border-primary/10 transition-all duration-300">
+<div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between relative">
+<a class="flex items-center gap-2 group relative z-50" href="#">
+<div class="text-primary group-hover:rotate-12 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl drop-shadow-sm md:drop-shadow-none">spa</span>
+</div>
+<h1 class="text-text-main dark:text-white text-lg font-semibold tracking-wide uppercase drop-shadow-sm md:drop-shadow-none">Tamara Encuentra</h1>
+</a>
+<div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+<a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="#">Formaciones</a>
+<a class="text-primary text-sm font-semibold relative" href="#">
+                Nuestro equipo
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+</a>
+</div>
+<div class="flex items-center gap-4 hidden sm:flex">
+<button class="cursor-pointer flex items-center justify-center rounded-full h-11 px-6 bg-text-main text-white hover:bg-primary transition-all duration-300 text-sm font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</nav>
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-100 z-50 pb-safe shadow-[0_-5px_20px_rgba(0,0,0,0.03)]">
+<div class="grid grid-cols-4 h-16 items-center justify-items-center">
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">spa</span>
+<span class="text-[10px] font-medium">Servicios</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[26px]">group</span>
+<span class="text-[10px] font-medium">Equipo</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<span class="text-[10px] font-medium">Booksy</span>
+</a>
+</div>
+</nav>
+<section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-center justify-center mobile-hero-container">
+<video autoplay="" class="video-hero hidden md:block" loop="" muted="" playsinline="">
+<source src="https://videos.pexels.com/video-files/5501308/5501308-hd_1080_1920_25fps.mp4" type="video/mp4"/>
+</video>
+<div class="hero-bg-mobile"></div>
+<div class="hero-overlay hidden md:block"></div>
+<div class="hero-overlay-mobile md:hidden"></div>
+<div class="max-w-[1000px] mx-auto w-full relative z-10 text-center flex flex-col items-center">
+<div class="inline-flex items-center px-4 py-2 bg-white/60 backdrop-blur border border-primary/20 rounded-full text-[10px] md:text-xs font-semibold tracking-wider uppercase text-primary shadow-sm w-fit animate-pulse-sage transition-all duration-500 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+            Equipo Full Consistency
+        </div>
+<h1 class="text-text-main dark:text-white text-[2.8rem] leading-[1.15] sm:text-6xl lg:text-[5rem] font-medium md:leading-[1.1] tracking-tight relative drop-shadow-md md:drop-shadow-none mb-6">
+<span class="block">Las manos detrás</span>
+<span class="text-text-main relative inline-block">
+<span class="relative z-10">de tu belleza</span>
+<span class="underline-brush animate-draw-underline"></span>
+</span>
+</h1>
+<p class="text-text-main/80 dark:text-white text-base md:text-xl leading-relaxed max-w-2xl font-light mx-auto mb-10">
+            Un equipo de profesionales apasionadas, liderado por Tamara, comprometidas con realzar tu esencia natural.
+        </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-text-main hover:bg-black text-white text-base font-medium transition-all shadow-soft app-hover">
+<span>Conoce al equipo</span>
+</button>
+<button class="flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white/80 border border-gray-200 hover:border-primary text-text-main text-base font-medium transition-all shadow-sm app-hover backdrop-blur-sm">
+<span>Reserva tu cita</span>
+</button>
+</div>
+<svg class="absolute top-0 right-0 md:-right-10 w-24 h-24 text-primary/30 rotate-12 hidden md:block animate-float-slow" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 100 100">
+<path d="M50,10 A40,40 0 1,1 49,10" stroke-dasharray="5 5"></path>
+<path d="M50,30 L65,45 L50,60" transform="rotate(-45 50 50)"></path>
+</svg>
+<svg class="absolute bottom-0 left-0 md:-left-16 w-32 h-32 text-accent-sage/40 -rotate-12 hidden md:block animate-float-delayed" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 100">
+<path d="M10,80 Q50,10 90,80" stroke-linecap="round"></path>
+<circle cx="90" cy="80" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+</section>
+<section class="py-24 px-6 bg-white relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+<svg class="absolute top-20 left-10 text-primary/10 w-64 h-64" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-46.3C87.4,-33.5,90.1,-18,88.5,-2.8C86.9,12.4,81,27.2,71.8,39.4C62.6,51.6,50.1,61.1,36.5,67.7C22.9,74.3,8.2,77.9,-5.8,76.8C-19.8,75.7,-33.1,69.9,-44.6,61.4C-56.1,52.9,-65.8,41.7,-73.2,28.7C-80.6,15.7,-85.7,0.9,-82.9,-12.4C-80.1,-25.7,-69.4,-37.5,-57.4,-46.5C-45.4,-55.5,-32.1,-61.7,-19.1,-64.9C-6.1,-68.1,6.6,-68.3,19.8,-68.4L30.5,-68.5" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+<div class="order-2 lg:order-1 space-y-8">
+<div class="relative">
+<span class="font-handwriting text-2xl text-primary -rotate-2 block mb-2">Unas palabras...</span>
+<h2 class="text-3xl md:text-5xl font-light text-text-main leading-tight">
+                    Mi nombre es <br/>
+<span class="font-bold relative inline-block text-4xl md:text-6xl mt-2 mb-2">
+                        Tamara Encuentra
+                        <span class="absolute bottom-2 left-0 w-full h-4 bg-primary/20 -z-10 -rotate-1 rounded-full"></span>
+</span> <br/>
+                    y soy la fundadora.
+                </h2>
+</div>
+<div class="space-y-6 text-gray-600 font-light text-lg leading-relaxed">
+<p>
+                    Desde pequeña, el mundo de la belleza ha sido mi refugio y mi pasión. Pero fueron las cejas las que realmente capturaron mi corazón; la capacidad de transformar una expresión con solo unos trazos me sigue pareciendo magia pura.
+                </p>
+<p>
+                    Creé este centro no solo como un espacio de estética, sino como un hogar donde cada detalle conta. Es mi segundo gran amor, justo después de mi hijo, quien me inspira cada día a ser mejor.
+                </p>
+<p>
+                    Nada de esto sería posible sin mi increíble equipo. Mujeres talentosas que comparten mi obsesión por la excelencia y el cuidado genuino. Juntas, hacemos realidad la visión de una belleza natural y empoderada.
+                </p>
+</div>
+<div class="pt-4">
+<a class="inline-flex items-center gap-3 px-8 py-4 bg-text-main text-white rounded-full hover:bg-primary transition-all duration-300 shadow-lg hover:shadow-xl group app-hover" href="#">
+<span class="font-medium">Sígueme en Instagram</span>
+<span class="material-symbols-outlined text-lg group-hover:rotate-45 transition-transform">arrow_outward</span>
+</a>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+<div class="relative rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-all duration-700 max-w-md">
+<img alt="Tamara Encuentra" class="w-full h-[550px] object-cover filter brightness-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA"/>
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-8">
+<p class="font-handwriting text-white text-3xl">Con amor, Tamara x</p>
+</div>
+</div>
+<svg class="absolute -bottom-6 -right-6 w-32 h-32 text-accent-sage/60 z-[-1] animate-scribble" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M43.5,-54.6C56.2,-44.9,66.3,-32.1,70.6,-18.2C74.9,-4.3,73.5,10.7,66.1,23.3C58.8,35.9,45.5,46,31.7,53.2C17.9,60.4,3.6,64.7,-10.1,63.9C-23.8,63.1,-37,57.1,-48.5,48.1C-60,39.1,-69.8,27,-73.4,13.2C-77,-0.6,-74.5,-16.1,-65.4,-28.4C-56.3,-40.7,-40.6,-49.8,-26.1,-58.3C-11.6,-66.8,1.7,-74.7,13.6,-72.8C25.5,-70.9,35.9,-59.2,43.5,-54.6Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-gradient-to-b from-background-light to-primary-light/20 flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+<div class="max-w-4xl relative z-10">
+<h2 class="text-3xl md:text-5xl font-light text-text-main leading-tight md:leading-tight">
+            "No solo cuidamos tu imagen, <br class="hidden md:block"/> cuidamos tu
+            <span class="relative inline-block px-4 whitespace-nowrap">
+                confianza
+                <svg class="absolute -inset-2 w-[110%] h-[140%] text-primary/40 -rotate-2 animate-scribble" preserveAspectRatio="none" viewBox="0 0 100 60">
+<path d="M5,30 Q50,5 95,30 Q90,55 50,50 Q10,55 5,30" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</span>"
+        </h2>
+<p class="mt-8 text-lg font-light text-gray-500 max-w-2xl mx-auto">
+            Creemos que la belleza es una extensión de cómo te sientes. Cada tratamiento está diseñado para empoderarte.
+        </p>
+</div>
+</section>
+<section class="py-24 px-6 bg-[#fcfbf9] relative" id="equipo">
+<div class="max-w-[1280px] mx-auto relative z-10">
+<div class="text-center mb-16 relative">
+<span class="text-accent-sage font-medium tracking-[0.3em] uppercase text-sm mb-2 block">Profesionales</span>
+<h2 class="text-4xl md:text-5xl text-text-main font-light">
+                Conoce a <span class="marker-highlight font-bold italic text-text-main px-1">nuestras expertas</span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border border-white hover:border-primary/30">
+<div class="h-[400px] overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA');"></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg transform rotate-6 z-20 group-hover:rotate-12 transition-transform">
+<span class="font-handwriting text-xl text-primary font-bold">Founder &amp; Soul</span>
+</div>
+</div>
+<div class="p-6 flex-1 text-center relative bg-white/40">
+<h3 class="text-2xl font-bold text-text-main mb-1">Tamara</h3>
+<p class="text-sm font-medium text-primary tracking-widest uppercase mb-4">Master Artist</p>
+<p class="text-sm text-gray-500 font-light leading-relaxed">
+                        Experta en micropigmentación y arquitectura de la mirada. Su obsesión por el detalle es el alma de este centro.
+                    </p>
+</div>
+</div>
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border border-white hover:border-primary/30 mt-0 lg:mt-12">
+<div class="h-[400px] overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCml4q93_Gp3qdpPJR5N1qbg0lDUnGF2jOXadW2T_hggiG4gTjCF2eJyH7ZzK5azBrqkDykWOnOsMWbqigy-31LFK9Kl--Fa8y9HIn2sg0htW94w0-3Yx5RdfyThwoGm3ST1rBIRzs7ohn_bmgmlA72SLog7IaIk22pRa4DW-mbN8IptuQF7xa9cLIECd6gmuXud03kLgdmzarFR0WsdhelO-xKF3FOkEORBx9xps26pGen5oZKDP8dVvVNSVi2dRFHpHKdn7-0GH4');"></div>
+<div class="absolute top-8 -left-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg transform -rotate-3 z-20 group-hover:-rotate-6 transition-transform">
+<span class="font-handwriting text-xl text-gray-800">Lashes Expert ✨</span>
+</div>
+</div>
+<div class="p-6 flex-1 text-center relative bg-white/40">
+<h3 class="text-2xl font-bold text-text-main mb-1">Raquel</h3>
+<p class="text-sm font-medium text-primary tracking-widest uppercase mb-4">Especialista Pestañas</p>
+<p class="text-sm text-gray-500 font-light leading-relaxed">
+                        Domina todas las técnicas de volumen. Raquel diseña miradas que hablan por sí solas con delicadeza única.
+                    </p>
+</div>
+</div>
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border border-white hover:border-primary/30">
+<div class="h-[400px] overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUErP7q1S6152ZkpM1Fg1d4-gsftt--V8W10pRo0_U_6FQDb_2wE2a2HAjEbJcrgN-KfTHBVZvLh8nYK4pv_9pxaa_QQ7v0ePEELL2weB21KbQ25ptRHDtEXKdajvyjQyJGGer98Zsks7Epq1-Q7saeNW8aha05A4SxxgxLzZ9KRHaYHKfFPsBrfAsjPpwXBcLulIsK_rKWvIIp4U2UuUgxn-SZKpFVB-JaxwZRHsBS1hyxsbl6xXIhiUn711FhGArqoIK7RyM-iQ');"></div>
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg transform rotate-2 z-20 group-hover:rotate-0 transition-transform">
+<span class="font-handwriting text-xl text-gray-800">Skin Lover 💆‍♀️</span>
+</div>
+</div>
+<div class="p-6 flex-1 text-center relative bg-white/40">
+<h3 class="text-2xl font-bold text-text-main mb-1">María José</h3>
+<p class="text-sm font-medium text-primary tracking-widest uppercase mb-4">Facialista</p>
+<p class="text-sm text-gray-500 font-light leading-relaxed">
+                        Especializada en dermocosmética avanzada. Sus manos tienen el don de transformar y relajar tu piel.
+                    </p>
+</div>
+</div>
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border border-white hover:border-primary/30 mt-0 lg:mt-12">
+<div class="h-[400px] overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3HEGx7vVPG0mCutFxIVEJL4L7Les4tCDKY0MV_c8lW_D7jLH6F0gB5GPyslndWRtY5ErrnQwyZ3wUFSVLfyMogGmTMLAckwN5Hr8eRtdVsYRLfTd6JjMvTG34mgTTVGNaigDE3NAkUYhQf9_bAXusYH87yZajBBE3xTpGneoA5FRJcyqv3J8UPLwwYn_ZQVXIhvPQSVPKVm6Ew9iaG8LOhjsR4ITtDBkjUm56CukJxIjeiPKV9z2hAR2e-xqhtVllwoRkegTJ3LI');"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg transform -rotate-12 z-20 group-hover:-rotate-6 transition-transform">
+<span class="font-handwriting text-xl text-primary font-bold">Nails Artist 💅</span>
+</div>
+</div>
+<div class="p-6 flex-1 text-center relative bg-white/40">
+<h3 class="text-2xl font-bold text-text-main mb-1">Verónica</h3>
+<p class="text-sm font-medium text-primary tracking-widest uppercase mb-4">Nail Technician</p>
+<p class="text-sm text-gray-500 font-light leading-relaxed">
+                        Creatividad y precisión en cada manicura. Verónica convierte tus uñas en pequeñas obras de arte duraderas.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-[#f5f3ef] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-accent-sage/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+<div class="max-w-[1280px] mx-auto relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-light text-text-main">
+                Nuestro <span class="font-bold text-primary">centro</span>
+</h2>
+<p class="text-gray-500 mt-2 font-handwriting text-2xl rotate-[-2deg]">Un oasis en la ciudad</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4 px-4">
+<div class="polaroid transform rotate-[-3deg] md:mt-12">
+<div class="aspect-[4/5] w-full bg-gray-100 mb-4 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+<p class="font-handwriting text-xl text-center text-gray-700">Zona de recepción 🌿</p>
+</div>
+<div class="polaroid transform rotate-[2deg] z-10">
+<div class="aspect-[4/5] w-full bg-gray-100 mb-4 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAiLGq6nWghvJR_0OEmOW_E4fnX4nVZSwQ1HV6_PGu3GHtY4cKNSmuU3s17ccTU0abwvrw4PSivqBoCQcSkwrB8Zs9Q2eNmYlSG_mzKu7uXbvV8uTHuYM2SnvKPxFgngpk5ejrLJemprO0WsfO1iTGBZ3lncox278_ZiQ4ZNUp3s5TOxk9lXr1Vw8L8CW6bO2abeLRpKAzQe6UrX9PLYL8Cu-eMmMvVur9QbksgXdS_CrP8ubOZutZjwqpnvrUqTU_icqnSxfxRvg8');"></div>
+<p class="font-handwriting text-xl text-center text-gray-700">Cabina VIP</p>
+</div>
+<div class="polaroid transform rotate-[-1deg] md:mt-8">
+<div class="aspect-[4/5] w-full bg-gray-100 mb-4 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuW5XZTQXU7N5y2dm6wjoOTmZBxRkK4EiHrPkZSfOx6e_SRJYC6Kz29cYB2tt11z9jW3x7HMbTtGgQ1MSWgSCqw70jP7T2yWPagG7aRlc6ZeTXIRTS72vXNrlro-2rJApqvQQ6Jv_DD1Aj9hOjTK5HFbpS25rJB3PyjXHWYFCsUPbdpPJr2CpKXt27mrR-1SVbg7pfwWJTz6xAEwDq-kuRgKBWO_2KKT2Y83vrrM6aOJuskHHXIkStNXwEKeHHl0XLo3Eh7O_AGAg');"></div>
+<p class="font-handwriting text-xl text-center text-gray-700">Detalles que enamoran ✨</p>
+</div>
+<div class="polaroid transform rotate-[3deg]">
+<div class="aspect-[4/5] w-full bg-gray-100 mb-4 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5KMo7dowqZ7pJMLYUlLqNVCev03saRwoZF_f74LHiyVpCV9SBAV53MZwhRbFaEsqF1dqm5PxNWgETyiRQRMe9lwzeTcNyDZjbEg9lGLWerrWWTd2EBw1obefGueMJhgjEPqo0ma9x33L9BJfmmePRPKeDONf7cOq6Ih7a7T7jZXQvcFBvu6EWJvp8_kPey3GVcfxqJa7rZVvPCsU-AslNcGTa-ErW1I0jElfCi4y2gIw6GPM_kk-w59oKBmHVBfnqfHowQ4opogg');"></div>
+<p class="font-handwriting text-xl text-center text-gray-700">Coffee Corner ☕</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-white relative">
+<div class="max-w-3xl mx-auto relative">
+<div class="text-center mb-12 relative inline-block w-full">
+<h2 class="text-3xl font-light text-text-main inline-block relative z-10 px-4">
+                Preguntas Frecuentes
+                <svg class="absolute inset-0 w-full h-full -z-10 text-primary/20 transform scale-125 rotate-[-1deg]" preserveAspectRatio="none" viewBox="0 0 200 60">
+<path d="M10,30 Q100,5 190,30 Q190,55 100,50 Q10,55 10,30" fill="currentColor" stroke="none"></path>
+</svg>
+</h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿Puedo elegir quién me atiende?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    ¡Por supuesto! En el momento de reservar a través de Booksy, podrás seleccionar a la profesional con la que deseas realizarte el tratamiento, según su disponibilidad.
+                </div>
+</details>
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿Trabajáis con cita previa?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    Sí, para garantizar la exclusividad y el tiempo necesario para cada cliente, trabajamos únicamente con cita previa.
+                </div>
+</details>
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿Realizáis diagnósticos personalizados?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    Absolutamente. Antes de cualquier tratamiento facial o de cejas, nuestras especialistas realizan un estudio de tu rostro y piel para recomendarte lo mejor para ti.
+                </div>
+</details>
+</div>
+</div>
+</section>
+<footer class="bg-stone-dark text-primary-light py-20 px-6 rounded-t-[3rem] mt-12">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">spa</span>
+<span class="text-white text-lg font-semibold tracking-wide uppercase">Tamara Encuentra</span>
+</div>
+<p class="text-white/60 text-sm leading-relaxed max-w-xs font-light">
+                Tu santuario de belleza. Especialistas en realzar tu naturalidad con tecnología y experiencia.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">videocam</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Menu</h4>
+<ul class="space-y-3 text-sm font-light text-white/70">
+<li><a class="hover:text-primary transition-colors" href="#">Servicios</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Formación</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Nuestro equipo</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tarjetas Regalo</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Contacto</h4>
+<ul class="space-y-4 text-sm font-light text-white/70">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5 text-lg">location_on</span>
+<span>Calle Velázquez 45,<br/>28001 Madrid</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<span>+34 912 345 678</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<span>hola@tamaraencuentra.com</span>
+</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Encuéntranos</h4>
+<div class="w-full aspect-video rounded-2xl bg-[#3a3630] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100 border border-white/10">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjW4P_v4bpCfYglKl9wMj82dXz0Bb_fl6M-Qr1pp-0rVDU7mHyd7tgGdkfbSqCDVIZYsU6TcSu1aAROe2NVNZiad6ERoD1N_99HNnsv5H-g70HF8eZa2NBBkSG9WQL0ik125ljWIc7Bzhg6_laY-nETecKqmK6WSt7v76NO3qF2IWfvNpFIhDi6aoZTDARiv1C0kLYbB2dkkbD7YMiMT_dSkS24Qu_B2OFvRWbN6dFwWNW-pI9clyRnvlsZGVmRP1Bye9marpmRJ0');"></div>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-light">
+<p>© 2024 Tamara Encuentra. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Aviso Legal</a>
+<a class="hover:text-white transition-colors" href="#">Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+</body></html>

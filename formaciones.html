@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tamara Encuentra - Formaciones Final Polish</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&amp;family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#cfaa68",
+            "primary-light": "#f0e6d2",
+            "background-light": "#fcfbf9",
+            "background-dark": "#1c1a16",
+            "accent-sage": "#aeb5a3",
+            "accent-blush": "#ebdcd6",
+            "stone-dark": "#36322d",
+            "text-main": "#2b261f"
+          },
+          fontFamily: {
+            "sans": ["Poppins", "sans-serif"],
+            "display": ["Poppins", "sans-serif"],
+            "body": ["Poppins", "sans-serif"],
+            "handwriting": ["Caveat", "cursive"],
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "2rem",
+            "3xl": "2.5rem",
+            "4xl": "3.5rem",
+            "full": "9999px"
+          },
+          boxShadow: {
+            "soft": "0 10px 40px -10px rgba(0,0,0,0.08)",
+            "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+            "float": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          },
+          animation: {
+            'pulse-sage': 'pulseSage 3s infinite',
+            'draw-underline': 'drawUnderline 1.5s ease-out forwards',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'scribble': 'scribble 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            pulseSage: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(174, 181, 163, 0)', borderColor: 'rgba(207, 170, 104, 0.2)' },
+              '50%': { boxShadow: '0 0 20px 0 rgba(174, 181, 163, 0.3)', borderColor: '#aeb5a3' },
+            },
+            drawUnderline: {
+              '0%': { width: '0%' },
+              '100%': { width: '100%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scribble: {
+               '0%': { transform: 'skew(1deg)' },
+               '100%': { transform: 'skew(-1deg)' }
+            }
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-nav {
+      background: rgba(252, 251, 249, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .glass-card {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .glass-pill {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(to right, #2b261f, #cfaa68);
+    }.app-hover {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .app-hover:hover {
+        transform: scale(1.03);
+    }.pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    .underline-brush {
+        position: absolute;
+        bottom: 0.1em;
+        left: 0;
+        height: 0.4em;
+        background-color: rgba(207, 170, 104, 0.4);
+        z-index: -1;
+        transform: skew(-10deg) rotate(-1deg);
+        border-radius: 4px;
+        width: 100%;
+    }
+    .marker-highlight {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+    }
+    .marker-highlight::before {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: -2px;
+        right: -2px;
+        height: 12px;
+        background-color: #f0e6d2;
+        z-index: -1;
+        transform: rotate(-1deg);
+        border-radius: 4px;
+        opacity: 0.7;
+    }.insta-frame {
+        background: white;
+        border: 1px solid #dbdbdb;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .insta-frame:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+    .video-hero {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }.hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(252, 251, 249, 0.75);
+        z-index: -1;
+        backdrop-filter: blur(2px);
+    }
+    .snap-mandatory-x {
+        scroll-snap-type: x mandatory;
+    }
+    .snap-center {
+        scroll-snap-align: center;
+    }
+    @media (max-width: 768px) {
+        .mobile-hero-container {
+            min-height: 85svh;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));
+            padding-top: 7rem;
+            background-color: #fcfbf9;}
+        .video-hero {
+            display: none;
+        }.hero-bg-mobile {
+            display: none;}
+        .hero-gradient-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(207, 170, 104, 0.15), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero-overlay-mobile {
+            display: none;}
+        .glass-nav {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-bottom: none !important;
+        }
+    }
+    @media (min-width: 769px) {
+        .hero-bg-mobile, .hero-overlay-mobile, .hero-gradient-bottom {
+            display: none;
+        }
+    }.modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }#reel-modal-toggle:checked ~ .modal-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .phone-frame {
+        width: 320px;
+        height: 650px;background: black;
+        border-radius: 40px;
+        border: 8px solid #333;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        transform: scale(0.9);
+    }
+    @media (min-width: 768px) {
+        .phone-frame { transform: scale(1); }
+    }
+    .premium-check {
+        width: 20px;
+        height: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #a4c9a4 0%, #4A7D4A 100%);
+        border-radius: 50%;
+        box-shadow:
+            0 2px 5px rgba(74, 125, 74, 0.3),
+            inset 0 1px 2px rgba(255,255,255,0.4);
+        position: relative;
+    }
+    .premium-check::after {
+        content: "check";
+        font-family: 'Material Symbols Outlined';
+        font-size: 14px;
+        color: white;
+        font-weight: 700;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main overflow-x-hidden antialiased selection:bg-primary/20 pb-20 md:pb-0">
+<input class="peer hidden" id="reel-modal-toggle" type="checkbox"/>
+<div class="modal-backdrop">
+<label class="absolute top-6 right-6 text-white cursor-pointer z-50 p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors" for="reel-modal-toggle">
+<span class="material-symbols-outlined text-3xl">close</span>
+</label>
+<div class="phone-frame bg-gray-900 flex items-center justify-center">
+<div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-xl z-20"></div>
+<video autoplay="" class="w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=2">
+<source src="https://videos.pexels.com/video-files/3998349/3998349-hd_1080_1920_25fps.mp4" type="video/mp4"/>
+</video>
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent pt-20 text-white">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary">
+<span class="material-symbols-outlined text-xs">spa</span>
+</div>
+<span class="font-semibold text-sm">tamara_academy</span>
+</div>
+<p class="text-sm font-light mb-4">Descubre cómo son nuestras clases prácticas ✨ #formacion #belleza</p>
+</div>
+</div>
+</div>
+<nav class="fixed top-0 left-0 right-0 z-50 w-full glass-nav border-b border-primary/10 transition-all duration-300">
+<div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between relative">
+<a class="flex items-center gap-2 group relative z-50" href="#">
+<div class="text-primary group-hover:rotate-12 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl drop-shadow-sm md:drop-shadow-none">spa</span>
+</div>
+<h1 class="text-text-main dark:text-white text-lg font-semibold tracking-wide uppercase drop-shadow-sm md:drop-shadow-none">Tamara Encuentra</h1>
+</a>
+<div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+<a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="text-primary text-sm font-semibold relative" href="#">
+                Formaciones
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+</a>
+<a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="#equipo">Nuestro equipo</a>
+</div>
+<div class="flex items-center gap-4 hidden sm:flex">
+<button class="cursor-pointer flex items-center justify-center rounded-full h-11 px-6 bg-text-main text-white hover:bg-primary transition-all duration-300 text-sm font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</nav>
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-100 z-50 pb-safe shadow-[0_-5px_20px_rgba(0,0,0,0.03)]">
+<div class="grid grid-cols-4 h-16 items-center justify-items-center">
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">spa</span>
+<span class="text-[10px] font-medium">Servicios</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[26px]">school</span>
+<span class="text-[10px] font-medium">Cursos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<span class="text-[10px] font-medium">Booksy</span>
+</a>
+</div>
+</nav>
+<section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-center justify-center mobile-hero-container">
+<video autoplay="" class="video-hero hidden md:block" loop="" muted="" playsinline="">
+<source src="https://videos.pexels.com/video-files/5501308/5501308-hd_1080_1920_25fps.mp4" type="video/mp4"/>
+</video>
+<div class="hero-bg-mobile"></div>
+<div class="hero-overlay hidden md:block"></div>
+<div class="hero-overlay-mobile md:hidden"></div>
+<div class="hero-gradient-bottom"></div>
+<div class="max-w-[1000px] mx-auto w-full relative z-10 text-center flex flex-col items-center">
+<div class="inline-flex items-center px-4 py-2 bg-white/60 backdrop-blur border border-primary/20 rounded-full text-[10px] md:text-xs font-semibold tracking-wider uppercase text-primary shadow-sm w-fit animate-pulse-sage transition-all duration-500 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+            Tamara Academy
+        </div>
+<h1 class="text-text-main dark:text-white text-[2.8rem] leading-[1.15] sm:text-6xl lg:text-[5rem] font-medium md:leading-[1.1] tracking-tight relative drop-shadow-md md:drop-shadow-none mb-6">
+<span class="block">Tu futuro</span>
+<span class="text-text-main relative inline-block">
+<span class="relative z-10">profesional</span>
+<span class="underline-brush animate-draw-underline"></span>
+</span>
+<span class="block text-primary italic font-serif">te espera</span>
+</h1>
+<p class="text-text-main/80 dark:text-white text-base md:text-xl leading-relaxed max-w-2xl font-light mx-auto mb-10">
+            En nuestro centro no aprendes teoría, adquieres un oficio. Fórmate con las técnicas más demandadas y empieza a construir tu carrera hoy mismo.
+        </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-text-main hover:bg-black text-white text-base font-medium transition-all shadow-soft app-hover">
+<span>Ver cursos disponibles</span>
+</button>
+<button class="flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white/80 border border-gray-200 hover:border-primary text-text-main text-base font-medium transition-all shadow-sm app-hover backdrop-blur-sm">
+<span class="material-symbols-outlined mr-2 text-primary">play_circle</span>
+<span>Conoce la academia</span>
+</button>
+</div>
+<svg class="absolute top-0 right-0 md:-right-10 w-24 h-24 text-primary/30 rotate-12 hidden md:block animate-float-slow" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 100 100">
+<path d="M50,10 A40,40 0 1,1 49,10" stroke-dasharray="5 5"></path>
+<path d="M50,30 L65,45 L50,60" transform="rotate(-45 50 50)"></path>
+</svg>
+<svg class="absolute bottom-0 left-0 md:-left-16 w-32 h-32 text-accent-sage/40 -rotate-12 hidden md:block animate-float-delayed" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 100">
+<path d="M10,80 Q50,10 90,80" stroke-linecap="round"></path>
+<circle cx="90" cy="80" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+</section>
+<section class="py-20 px-6 bg-background-light relative">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-16 relative">
+<h2 class="text-3xl md:text-4xl font-light text-text-main">
+                ¿Por qué <span class="font-bold italic text-primary relative">
+                    elegir nuestras formaciones?
+                    <svg class="absolute -top-6 -right-6 w-8 h-8 text-primary rotate-12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</span>
+</h2>
+<p class="text-gray-500 mt-4 font-light">La diferencia está en los detalles y en la pasión.</p>
+</div>
+<div class="flex flex-row md:grid md:grid-cols-2 gap-4 md:gap-12 overflow-x-auto md:overflow-visible pb-8 md:pb-0 px-1 md:px-0 snap-mandatory-x no-scrollbar">
+<div class="min-w-[85vw] md:min-w-0 snap-center bg-white/50 backdrop-blur-xl border border-primary/20 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(207,170,104,0.15)] relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+<div class="md:hidden absolute top-1/2 right-4 -translate-y-1/2 animate-pulse text-primary/40 pointer-events-none z-10">
+<span class="material-symbols-outlined text-4xl">arrow_forward_ios</span>
+</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">spa</span>
+</div>
+<h3 class="text-2xl font-bold text-text-main">Tamara Encuentra</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Salida profesional real</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">La formación más completa del mercado</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Recibes un kit profesional</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Atención individualizada</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Grupos muy reducidos</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Práctica de modelos reales</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Diploma del curso</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Seguimiento post formación</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="premium-check mt-0.5"></div>
+<p class="font-semibold text-text-main text-sm">Acceso a un grupo de Whatsapp con Tamara</p>
+</li>
+</ul>
+</div>
+<div class="min-w-[85vw] md:min-w-0 snap-center bg-gray-50 border border-gray-200 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden opacity-90">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<h3 class="text-2xl font-bold text-gray-400">Otros centros</h3>
+</div>
+<ul class="space-y-4 grayscale opacity-60">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Sin bolsa de empleo</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Temario básico y obsoleto</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Materiales a compartir o coste extra</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Clases masificadas</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Grupos grandes (10+ personas)</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Práctica en piel sintética</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Certificado de asistencia simple</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Sin soporte tras el curso</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
+<p class="font-medium text-gray-500 text-sm">Sin contacto directo con el formador</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-[#fcfbf9] relative overflow-hidden" id="cursos">
+<svg class="absolute top-20 left-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path class="text-primary" d="M-10,10 Q40,40 110,10" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<path class="text-primary" d="M-10,60 Q60,90 110,50" fill="none" stroke="currentColor" stroke-dasharray="5 5" stroke-width="0.5"></path>
+</svg>
+<div class="max-w-[1280px] mx-auto relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<span class="text-accent-sage font-medium tracking-[0.3em] uppercase text-sm mb-2 block">Inscripciones Abiertas</span>
+<h2 class="text-4xl md:text-5xl text-text-main font-light">
+                    Nuestros cursos <br/>
+<span class="marker-highlight font-bold italic text-text-main px-1">disponibles</span>
+</h2>
+</div>
+<div class="flex gap-2 hidden md:flex">
+<button class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm bg-white"><span class="material-symbols-outlined">arrow_back</span></button>
+<button class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm bg-white"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border-t-4 border-t-primary">
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-black/10 transition-colors"></div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA');"></div>
+<div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+    Inscripciones abiertas
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-xl font-bold text-text-main mb-1">Masterclass Velvet Cejas</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Nivel intermedio/avanzado</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">calendar_month</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Sábado, 31 Ene 2026</p>
+<p class="text-xs text-gray-500">10:00 - 18:00 (12 horas totales)</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Presencial Sevilla</p>
+<p class="text-xs text-gray-500">Calle Sierpes 12</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">people</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Plazas: 3</p>
+<p class="text-xs text-gray-500">Últimos cupos</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">payments</span>
+<div>
+<p class="text-sm font-semibold text-text-main">A consultar</p>
+<p class="text-xs text-gray-500">Facilidades de pago</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<span>Reservar por WhatsApp</span>
+</button>
+<label class="w-full py-3 rounded-xl border border-primary/30 text-primary font-medium hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2 cursor-pointer bg-white" for="reel-modal-toggle">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+<span>Ver vídeo de la formación</span>
+</label>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border-t-4 border-t-gray-200 hover:border-t-primary">
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 z-10"></div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCml4q93_Gp3qdpPJR5N1qbg0lDUnGF2jOXadW2T_hggiG4gTjCF2eJyH7ZzK5azBrqkDykWOnOsMWbqigy-31LFK9Kl--Fa8y9HIn2sg0htW94w0-3Yx5RdfyThwoGm3ST1rBIRzs7ohn_bmgmlA72SLog7IaIk22pRa4DW-mbN8IptuQF7xa9cLIECd6gmuXud03kLgdmzarFR0WsdhelO-xKF3FOkEORBx9xps26pGen5oZKDP8dVvVNSVi2dRFHpHKdn7-0GH4');"></div>
+<div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+    Inscripciones abiertas
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-xl font-bold text-text-main mb-1">Iniciación Microblading</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Desde cero</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">calendar_month</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Martes, 3 de Feb 2026</p>
+<p class="text-xs text-gray-500">20 horas de formación</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">location_on</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Presencial Dos Hermanas</p>
+<p class="text-xs text-gray-500">Plazas: 3</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">payments</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Precio: 1.250€</p>
+<p class="text-xs text-gray-500">Todo incluido</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<span>Reservar por WhatsApp</span>
+</button>
+<label class="w-full py-3 rounded-xl border border-gray-200 text-text-main/70 font-medium hover:bg-primary hover:text-white hover:border-primary transition-colors flex items-center justify-center gap-2 cursor-pointer bg-white" for="reel-modal-toggle">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+<span>Ver vídeo de la formación</span>
+</label>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border-t-4 border-t-gray-200 hover:border-t-primary">
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 z-10"></div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUErP7q1S6152ZkpM1Fg1d4-gsftt--V8W10pRo0_U_6FQDb_2wE2a2HAjEbJcrgN-KfTHBVZvLh8nYK4pv_9pxaa_QQ7v0ePEELL2weB21KbQ25ptRHDtEXKdajvyjQyJGGer98Zsks7Epq1-Q7saeNW8aha05A4SxxgxLzZ9KRHaYHKfFPsBrfAsjPpwXBcLulIsK_rKWvIIp4U2UuUgxn-SZKpFVB-JaxwZRHsBS1hyxsbl6xXIhiUn711FhGArqoIK7RyM-iQ');"></div>
+<div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+    Inscripciones abiertas
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-xl font-bold text-text-main mb-1">Lifting de Pestañas Pro</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Perfeccionamiento</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">calendar_month</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Lunes, 2 de Mar 2026</p>
+<p class="text-xs text-gray-500">8 horas de formación</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">location_on</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Presencial Dos Hermanas</p>
+<p class="text-xs text-gray-500">Plazas: 2</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">payments</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Precio: 850€</p>
+<p class="text-xs text-gray-500">Certificado incluido</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<span>Reservar por WhatsApp</span>
+</button>
+<label class="w-full py-3 rounded-xl border border-gray-200 text-text-main/70 font-medium hover:bg-primary hover:text-white hover:border-primary transition-colors flex items-center justify-center gap-2 cursor-pointer bg-white" for="reel-modal-toggle">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+<span>Ver vídeo de la formación</span>
+</label>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-[2rem] overflow-hidden group hover:shadow-xl transition-all duration-500 relative flex flex-col h-full border-t-4 border-t-gray-200 hover:border-t-primary">
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 z-10"></div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3HEGx7vVPG0mCutFxIVEJL4L7Les4tCDKY0MV_c8lW_D7jLH6F0gB5GPyslndWRtY5ErrnQwyZ3wUFSVLfyMogGmTMLAckwN5Hr8eRtdVsYRLfTd6JjMvTG34mgTTVGNaigDE3NAkUYhQf9_bAXusYH87yZajBBE3xTpGneoA5FRJcyqv3J8UPLwwYn_ZQVXIhvPQSVPKVm6Ew9iaG8LOhjsR4ITtDBkjUm56CukJxIjeiPKV9z2hAR2e-xqhtVllwoRkegTJ3LI');"></div>
+<div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+    Inscripciones abiertas
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-xl font-bold text-text-main mb-1">Nail Art Avanzado</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Creatividad al poder</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">calendar_month</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Miércoles, 11 de Mar 2026</p>
+<p class="text-xs text-gray-500">8 horas de formación</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">location_on</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Presencial Dos Hermanas</p>
+<p class="text-xs text-gray-500">Plazas: 2</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-gray-400 text-xl mt-0.5">payments</span>
+<div>
+<p class="text-sm font-semibold text-text-main">Precio: 650€</p>
+<p class="text-xs text-gray-500">Material incluido</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<span>Reservar por WhatsApp</span>
+</button>
+<label class="w-full py-3 rounded-xl border border-gray-200 text-text-main/70 font-medium hover:bg-primary hover:text-white hover:border-primary transition-colors flex items-center justify-center gap-2 cursor-pointer bg-white" for="reel-modal-toggle">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+<span>Ver vídeo de la formación</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-[#f5f3ef] relative overflow-hidden">
+<div class="max-w-[1280px] mx-auto relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-light text-text-main">
+                Nuestras <span class="font-bold text-primary">Alumnas</span>
+</h2>
+<p class="text-gray-500 mt-2 font-handwriting text-2xl rotate-[-2deg]">El orgullo de la academia</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+<div class="insta-frame bg-white">
+<div class="p-3 flex items-center gap-2 border-b border-gray-100">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs">
+<span class="material-symbols-outlined text-sm">spa</span>
+</div>
+<span class="text-xs font-semibold text-text-main">tamara_academy</span>
+</div>
+<div class="aspect-[4/5] w-full bg-gray-100 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5KMo7dowqZ7pJMLYUlLqNVCev03saRwoZF_f74LHiyVpCV9SBAV53MZwhRbFaEsqF1dqm5PxNWgETyiRQRMe9lwzeTcNyDZjbEg9lGLWerrWWTd2EBw1obefGueMJhgjEPqo0ma9x33L9BJfmmePRPKeDONf7cOq6Ih7a7T7jZXQvcFBvu6EWJvp8_kPey3GVcfxqJa7rZVvPCsU-AslNcGTa-ErW1I0jElfCi4y2gIw6GPM_kk-w59oKBmHVBfnqfHowQ4opogg');"></div>
+<div class="p-4">
+<div class="flex gap-4 mb-3 text-text-main/80">
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-red-500">favorite</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-blue-500">chat_bubble</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-green-500">send</span>
+</div>
+<p class="text-sm text-gray-700 leading-snug"><span class="font-semibold mr-1">tamara_academy</span>Primera práctica y ya apuntan maneras ✨ #proudteacher</p>
+</div>
+</div>
+<div class="insta-frame bg-white">
+<div class="p-3 flex items-center gap-2 border-b border-gray-100">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs">
+<span class="material-symbols-outlined text-sm">spa</span>
+</div>
+<span class="text-xs font-semibold text-text-main">tamara_academy</span>
+</div>
+<div class="aspect-[4/5] w-full bg-gray-100 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAiLGq6nWghvJR_0OEmOW_E4fnX4nVZSwQ1HV6_PGu3GHtY4cKNSmuU3s17ccTU0abwvrw4PSivqBoCQcSkwrB8Zs9Q2eNmYlSG_mzKu7uXbvV8uTHuYM2SnvKPxFgngpk5ejrLJemprO0WsfO1iTGBZ3lncox278_ZiQ4ZNUp3s5TOxk9lXr1Vw8L8CW6bO2abeLRpKAzQe6UrX9PLYL8Cu-eMmMvVur9QbksgXdS_CrP8ubOZutZjwqpnvrUqTU_icqnSxfxRvg8');"></div>
+<div class="p-4">
+<div class="flex gap-4 mb-3 text-text-main/80">
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-red-500">favorite</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-blue-500">chat_bubble</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-green-500">send</span>
+</div>
+<p class="text-sm text-gray-700 leading-snug"><span class="font-semibold mr-1">tamara_academy</span>Grupo de marzo completo! Gracias por la confianza 🤍</p>
+</div>
+</div>
+<div class="insta-frame bg-white">
+<div class="p-3 flex items-center gap-2 border-b border-gray-100">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs">
+<span class="material-symbols-outlined text-sm">spa</span>
+</div>
+<span class="text-xs font-semibold text-text-main">tamara_academy</span>
+</div>
+<div class="aspect-[4/5] w-full bg-gray-100 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuW5XZTQXU7N5y2dm6wjoOTmZBxRkK4EiHrPkZSfOx6e_SRJYC6Kz29cYB2tt11z9jW3x7HMbTtGgQ1MSWgSCqw70jP7T2yWPagG7aRlc6ZeTXIRTS72vXNrlro-2rJApqvQQ6Jv_DD1Aj9hOjTK5HFbpS25rJB3PyjXHWYFCsUPbdpPJr2CpKXt27mrR-1SVbg7pfwWJTz6xAEwDq-kuRgKBWO_2KKT2Y83vrrM6aOJuskHHXIkStNXwEKeHHl0XLo3Eh7O_AGAg');"></div>
+<div class="p-4">
+<div class="flex gap-4 mb-3 text-text-main/80">
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-red-500">favorite</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-blue-500">chat_bubble</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-green-500">send</span>
+</div>
+<p class="text-sm text-gray-700 leading-snug"><span class="font-semibold mr-1">tamara_academy</span>Entrega de diplomas 🎓 Enhorabuena chicas!</p>
+</div>
+</div>
+<div class="insta-frame bg-white">
+<div class="p-3 flex items-center gap-2 border-b border-gray-100">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs">
+<span class="material-symbols-outlined text-sm">spa</span>
+</div>
+<span class="text-xs font-semibold text-text-main">tamara_academy</span>
+</div>
+<div class="aspect-[4/5] w-full bg-gray-100 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5KMo7dowqZ7pJMLYUlLqNVCev03saRwoZF_f74LHiyVpCV9SBAV53MZwhRbFaEsqF1dqm5PxNWgETyiRQRMe9lwzeTcNyDZjbEg9lGLWerrWWTd2EBw1obefGueMJhgjEPqo0ma9x33L9BJfmmePRPKeDONf7cOq6Ih7a7T7jZXQvcFBvu6EWJvp8_kPey3GVcfxqJa7rZVvPCsU-AslNcGTa-ErW1I0jElfCi4y2gIw6GPM_kk-w59oKBmHVBfnqfHowQ4opogg');"></div>
+<div class="p-4">
+<div class="flex gap-4 mb-3 text-text-main/80">
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-red-500">favorite</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-blue-500">chat_bubble</span>
+<span class="material-symbols-outlined text-[1.4rem] cursor-pointer hover:text-green-500">send</span>
+</div>
+<p class="text-sm text-gray-700 leading-snug"><span class="font-semibold mr-1">tamara_academy</span>Happy students, happy teacher. 💫 #beautyclass</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-white relative">
+<div class="max-w-3xl mx-auto relative">
+<div class="text-center mb-12 relative inline-block w-full">
+<h2 class="text-3xl font-light text-text-main inline-block relative z-10 px-4">
+                Preguntas Frecuentes
+                <svg class="absolute inset-0 w-full h-full -z-10 text-primary/20 transform scale-125 rotate-[-1deg]" preserveAspectRatio="none" viewBox="0 0 200 60">
+<path d="M10,30 Q100,5 190,30 Q190,55 100,50 Q10,55 10,30" fill="currentColor" stroke="none"></path>
+</svg>
+</h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿Necesito experiencia previa?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    Para los cursos de iniciación no necesitas ninguna experiencia. Empezamos desde cero absoluto. Para los Masterclass avanzados, sí requerimos titulación previa.
+                </div>
+</details>
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿El material está incluido?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    ¡Sí! Todos nuestros cursos presenciales incluyen un Kit Profesional valorado en más de 300€ para que puedas empezar a trabajar desde el primer día.
+                </div>
+</details>
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿Puedo pagar a plazos?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    Ofrecemos financiación propia en 3 cuotas sin intereses para cursos superiores a 500€. Contáctanos para más detalles.
+                </div>
+</details>
+<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="font-medium text-text-main text-lg">¿El diploma es oficial?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+</summary>
+<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                    Entregamos un certificado privado de Tamara Academy que acredita tus horas de formación y práctica, altamente valorado en el sector por nuestro nivel de exigencia.
+                </div>
+</details>
+</div>
+</div>
+</section>
+<footer class="bg-stone-dark text-primary-light py-20 px-6 rounded-t-[3rem] mt-12">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">spa</span>
+<span class="text-white text-lg font-semibold tracking-wide uppercase">Tamara Encuentra</span>
+</div>
+<p class="text-white/60 text-sm leading-relaxed max-w-xs font-light">
+                Tu santuario de belleza. Especialistas en realzar tu naturalidad con tecnología y experiencia.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">videocam</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Menu</h4>
+<ul class="space-y-3 text-sm font-light text-white/70">
+<li><a class="hover:text-primary transition-colors" href="#">Servicios</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Formación</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sobre nosotras</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tarjetas Regalo</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Contacto</h4>
+<ul class="space-y-4 text-sm font-light text-white/70">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5 text-lg">location_on</span>
+<span>Calle Velázquez 45,<br/>28001 Madrid</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<span>+34 912 345 678</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<span>hola@tamaraencuentra.com</span>
+</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Encuéntranos</h4>
+<div class="w-full aspect-video rounded-2xl bg-[#3a3630] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100 border border-white/10">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjW4P_v4bpCfYglKl9wMj82dXz0Bb_fl6M-Qr1pp-0rVDU7mHyd7tgGdkfbSqCDVIZYsU6TcSu1aAROe2NVNZiad6ERoD1N_99HNnsv5H-g70HF8eZa2NBBkSG9WQL0ik125ljWIc7Bzhg6_laY-nETecKqmK6WSt7v76NO3qF2IWfvNpFIhDi6aoZTDARiv1C0kLYbB2dkkbD7YMiMT_dSkS24Qu_B2OFvRWbN6dFwWNW-pI9clyRnvlsZGVmRP1Bye9marpmRJ0');"></div>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-light">
+<p>© 2024 Tamara Encuentra. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Aviso Legal</a>
+<a class="hover:text-white transition-colors" href="#">Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+</body></html>
