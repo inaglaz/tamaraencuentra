@@ -1,0 +1,840 @@
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tamara Encuentra - Servicios</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&amp;family=Caveat:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#cfaa68",
+            "primary-light": "#f0e6d2",
+            "background-light": "#fcfbf9",
+            "background-dark": "#1c1a16",
+            "accent-sage": "#aeb5a3",
+            "accent-blush": "#ebdcd6",
+            "stone-dark": "#36322d",
+            "text-main": "#2b261f"
+          },
+          fontFamily: {
+            "sans": ["Poppins", "sans-serif"],
+            "display": ["Poppins", "sans-serif"],
+            "body": ["Poppins", "sans-serif"],
+            "handwriting": ["Caveat", "cursive"],
+            "serif": ["Playfair Display", "serif"],
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "2rem",
+            "3xl": "2.5rem",
+            "4xl": "3.5rem",
+            "full": "9999px"
+          },
+          boxShadow: {
+            "soft": "0 10px 40px -10px rgba(0,0,0,0.08)",
+            "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+            "float": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          },
+          animation: {
+            'pulse-sage': 'pulseSage 3s infinite',
+            'draw-underline': 'drawUnderline 1.5s ease-out forwards',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'scribble': 'scribble 2s ease-in-out infinite alternate',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'spin-slow': 'spin 20s linear infinite',
+          },
+          keyframes: {
+            pulseSage: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(174, 181, 163, 0)', borderColor: 'rgba(174, 181, 163, 0.3)', backgroundColor: 'rgba(174, 181, 163, 0.05)' },
+              '50%': { boxShadow: '0 0 15px 0 rgba(174, 181, 163, 0.2)', borderColor: '#aeb5a3', backgroundColor: 'rgba(174, 181, 163, 0.15)' },
+            },
+            drawUnderline: {
+              '0%': { strokeDasharray: '0, 100' },
+              '100%': { strokeDasharray: '100, 0' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scribble: {
+               '0%': { transform: 'skew(1deg)' },
+               '100%': { transform: 'skew(-1deg)' }
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-nav {
+      background: rgba(252, 251, 249, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .glass-card {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .glass-pill {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(to right, #2b261f, #cfaa68);
+    }.app-hover {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .app-hover:hover {
+        transform: scale(1.03);
+    }.pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    .underline-brush {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0.5em;
+        background-color: rgba(207, 170, 104, 0.3);
+        z-index: -1;
+        transform: skew(-10deg) rotate(-1deg);
+        border-radius: 4px;
+    }
+    .carousel-snap {
+        scroll-snap-type: x mandatory;
+    }
+    .carousel-item {
+        scroll-snap-align: center;
+    }
+    .hero-text-shadow {
+        text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }#video-modal {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #video-modal:target {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    #video-modal .modal-content {
+        transform: scale(0.95) translateY(20px);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition-delay: 0.1s;
+    }
+    #video-modal:target .modal-content {
+        transform: scale(1) translateY(0);
+    }
+  </style>
+</head><body class="bg-background-light dark:bg-background-dark text-text-main overflow-x-hidden antialiased selection:bg-primary/20 pb-20 md:pb-0"><div class="language-html">
+<nav class="fixed top-0 left-0 right-0 z-50 w-full glass-nav border-b border-primary/10 transition-all duration-300">
+<div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between relative">
+<a class="flex items-center gap-2 group relative z-50" href="#">
+<div class="text-primary group-hover:rotate-12 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl drop-shadow-sm md:drop-shadow-none">spa</span>
+</div>
+<h1 class="text-text-main dark:text-white text-lg font-semibold tracking-wide uppercase drop-shadow-sm md:drop-shadow-none">Tamara Encuentra</h1>
+</a>
+<div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+<a class="text-primary font-medium hover:text-primary transition-colors border-b border-primary/40" href="#">Servicios</a>
+<a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="#">Formaciones</a>
+<a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="#">Nuestro equipo</a>
+</div>
+<div class="flex items-center gap-4 hidden sm:flex">
+<button class="cursor-pointer flex items-center justify-center rounded-full h-11 px-6 bg-text-main text-white hover:bg-primary transition-all duration-300 text-sm font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</nav>
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-100 z-50 pb-safe shadow-[0_-5px_20px_rgba(0,0,0,0.03)]">
+<div class="grid grid-cols-4 h-16 items-center justify-items-center">
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[26px]">spa</span>
+<span class="text-[10px] font-medium">Servicios</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">school</span>
+<span class="text-[10px] font-medium">Cursos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<span class="text-[10px] font-medium">Booksy</span>
+</a>
+</div>
+</nav>
+<section class="relative h-[95dvh] md:h-[85vh] md:min-h-0 md:pt-32 md:pb-24 flex flex-col justify-center items-center overflow-hidden bg-[#f7f5f2]">
+<div class="max-w-[1280px] mx-auto relative z-20 text-center flex flex-col items-center px-6 md:px-20 mt-0 h-full md:h-auto justify-center">
+<div class="mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+<span class="inline-block px-5 py-2 rounded-full border border-accent-sage/30 bg-accent-sage/10 text-accent-sage text-xs md:text-sm font-medium tracking-[0.2em] uppercase transition-all duration-700 hover:bg-accent-sage/20 animate-pulse-sage">
+        Nuestros servicios
+        </span>
+</div>
+<h1 class="text-4xl sm:text-5xl md:text-7xl font-semibold text-text-main mb-6 relative leading-tight animate-fade-in-up drop-shadow-sm max-w-5xl" style="animation-delay: 0.2s;">
+<svg class="absolute -top-6 -left-2 md:-top-8 md:-left-12 w-10 h-10 md:w-12 md:h-12 text-primary/30 animate-spin-slow hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 100 100">
+<path d="M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M15 85 L85 15" stroke-width="1"></path>
+</svg>
+        Calidad no solo en nuestros
+        <span class="font-light italic text-primary relative inline-block">
+            servicios
+<svg class="absolute -top-3 -right-5 w-5 h-5 text-primary/50 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+</svg>
+</span>,
+        <br class="hidden md:block"/>
+        también
+        <span class="relative inline-block mt-2 md:mt-0">
+<span class="font-light italic text-primary">humana</span>
+<svg class="absolute -bottom-1 left-0 w-full h-3 text-primary pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 15">
+<path class="animate-draw-underline" d="M0 10 Q 50 18 100 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" style="opacity: 0.7;"></path>
+</svg>
+</span>
+</h1>
+<p class="text-base md:text-xl text-gray-600 font-light max-w-2xl leading-relaxed animate-fade-in-up drop-shadow-sm md:drop-shadow-none mb-8" style="animation-delay: 0.3s;">
+        Fusionamos años de experiencia y las últimas tendencias para ofrecerte un cuidado a tu altura, en un espacio donde tú siempre eres la prioridad.
+    </p>
+<div class="mb-12 animate-fade-in-up" style="animation-delay: 0.4s;">
+<a class="group relative inline-flex items-center gap-3 px-8 py-3 bg-white rounded-full shadow-soft hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-primary/10" href="#video-modal">
+<span class="relative flex h-10 w-10">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-20"></span>
+<span class="relative inline-flex rounded-full h-10 w-10 bg-primary/10 items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-xl ml-1">play_arrow</span>
+</span>
+</span>
+<span class="text-text-main font-medium tracking-wide group-hover:text-primary transition-colors">Ver vídeo</span>
+</a>
+</div>
+<div class="animate-bounce opacity-60 text-primary">
+<span class="material-symbols-outlined text-4xl">keyboard_arrow_down</span>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 px-6 bg-background-light relative overflow-hidden">
+<svg class="absolute top-20 left-10 w-64 h-64 text-primary/5 -z-10 rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"></path></svg>
+<div class="max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">brush</span>
+                Micropigmentación
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Cejas y Labios</h3>
+</div>
+<div class="order-2 lg:order-1 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA');"></div>
+<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-lg text-white text-xs font-medium">Resultado Final</div>
+</div>
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-lg text-white text-xs font-medium">Proceso</div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-white shadow-sm"></span>
+<span class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></span>
+</div>
+</div>
+<div class="absolute -bottom-8 -left-8 text-primary/40 transform -rotate-12 z-[-1]">
+<svg fill="none" height="100" stroke="currentColor" stroke-width="2" viewBox="0 0 100 100" width="100">
+<path d="M10,10 Q50,90 90,10" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+<div class="order-3 lg:order-2 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">brush</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Micropigmentación</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Cejas y Labios</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                Redefine tus rasgos con la técnica más sofisticada. Logramos un efecto maquillaje natural que realza tu belleza sin artificios, corrigiendo asimetrías y aportando color y definición de larga duración.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-24 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 100 20">
+<path d="M0 10 Q 25 20 50 10 T 100 10" stroke-width="2"></path>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">visibility</span>
+                Micropigmentación Ojos
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Eyeliner &amp; Lash Liner</h3>
+</div>
+<div class="order-2 lg:order-2 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3HEGx7vVPG0mCutFxIVEJL4L7Les4tCDKY0MV_c8lW_D7jLH6F0gB5GPyslndWRtY5ErrnQwyZ3wUFSVLfyMogGmTMLAckwN5Hr8eRtdVsYRLfTd6JjMvTG34mgTTVGNaigDE3NAkUYhQf9_bAXusYH87yZajBBE3xTpGneoA5FRJcyqv3J8UPLwwYn_ZQVXIhvPQSVPKVm6Ew9iaG8LOhjsR4ITtDBkjUm56CukJxIjeiPKV9z2hAR2e-xqhtVllwoRkegTJ3LI');"></div>
+</div>
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA');"></div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-white shadow-sm"></span>
+<span class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></span>
+</div>
+</div>
+<div class="absolute -top-6 -right-6 text-primary/40 animate-pulse-sage">
+<svg fill="currentColor" height="60" viewBox="0 0 24 24" width="60"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"></path></svg>
+</div>
+</div>
+<div class="order-3 lg:order-1 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">visibility</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Micropigmentación Ojos</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Eyeliner &amp; Lash Liner</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                Intensifica tu mirada de forma sutil o dramática. Desde un fino relleno entre pestañas para dar volumen visual, hasta un eyeliner definido que te ahorrará tiempo cada mañana. Despierta con una mirada perfecta.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-24 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 100 20">
+<path d="M0 10 Q 25 0 50 10 T 100 10" stroke-width="2"></path>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">edit</span>
+                Microblading
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Diseño Hiperrealista</h3>
+</div>
+<div class="order-2 lg:order-1 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCml4q93_Gp3qdpPJR5N1qbg0lDUnGF2jOXadW2T_hggiG4gTjCF2eJyH7ZzK5azBrqkDykWOnOsMWbqigy-31LFK9Kl--Fa8y9HIn2sg0htW94w0-3Yx5RdfyThwoGm3ST1rBIRzs7ohn_bmgmlA72SLog7IaIk22pRa4DW-mbN8IptuQF7xa9cLIECd6gmuXud03kLgdmzarFR0WsdhelO-xKF3FOkEORBx9xps26pGen5oZKDP8dVvVNSVi2dRFHpHKdn7-0GH4');"></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-primary font-handwriting text-lg shadow-sm rotate-3">Pelo a pelo</div>
+</div>
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCml4q93_Gp3qdpPJR5N1qbg0lDUnGF2jOXadW2T_hggiG4gTjCF2eJyH7ZzK5azBrqkDykWOnOsMWbqigy-31LFK9Kl--Fa8y9HIn2sg0htW94w0-3Yx5RdfyThwoGm3ST1rBIRzs7ohn_bmgmlA72SLog7IaIk22pRa4DW-mbN8IptuQF7xa9cLIECd6gmuXud03kLgdmzarFR0WsdhelO-xKF3FOkEORBx9xps26pGen5oZKDP8dVvVNSVi2dRFHpHKdn7-0GH4');"></div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-white shadow-sm"></span>
+<span class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></span>
+</div>
+</div>
+<div class="absolute top-1/2 -left-10 md:-left-16 w-32 h-32 border-2 border-dashed border-primary/30 rounded-full -z-10 animate-spin-slow" style="animation-duration: 20s;"></div>
+</div>
+<div class="order-3 lg:order-2 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">edit</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Microblading</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Diseño Hiperrealista</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                La técnica manual pelo a pelo definitiva para cejas despobladas o sin forma. Creamos trazos que imitan a la perfección tu vello natural, consiguiendo unas cejas armónicas y con volumen que transforman tu expresión.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="currentColor" r="2"></circle>
+<circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+<circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">pan_tool</span>
+                Uñas
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Manicura, Acrílico y Gel</h3>
+</div>
+<div class="order-2 lg:order-2 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3HEGx7vVPG0mCutFxIVEJL4L7Les4tCDKY0MV_c8lW_D7jLH6F0gB5GPyslndWRtY5ErrnQwyZ3wUFSVLfyMogGmTMLAckwN5Hr8eRtdVsYRLfTd6JjMvTG34mgTTVGNaigDE3NAkUYhQf9_bAXusYH87yZajBBE3xTpGneoA5FRJcyqv3J8UPLwwYn_ZQVXIhvPQSVPKVm6Ew9iaG8LOhjsR4ITtDBkjUm56CukJxIjeiPKV9z2hAR2e-xqhtVllwoRkegTJ3LI');"></div>
+</div>
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3HEGx7vVPG0mCutFxIVEJL4L7Les4tCDKY0MV_c8lW_D7jLH6F0gB5GPyslndWRtY5ErrnQwyZ3wUFSVLfyMogGmTMLAckwN5Hr8eRtdVsYRLfTd6JjMvTG34mgTTVGNaigDE3NAkUYhQf9_bAXusYH87yZajBBE3xTpGneoA5FRJcyqv3J8UPLwwYn_ZQVXIhvPQSVPKVm6Ew9iaG8LOhjsR4ITtDBkjUm56CukJxIjeiPKV9z2hAR2e-xqhtVllwoRkegTJ3LI');"></div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-white shadow-sm"></span>
+<span class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></span>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-sage/20 rounded-full blur-xl -z-10"></div>
+</div>
+<div class="order-3 lg:order-1 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">pan_tool</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Uñas</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Manicura, Acrílico y Gel</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                Manos impecables que hablan por ti. Desde la manicura rusa más pulida hasta extensiones de gel o acrílico con diseños exclusivos. Cuidamos la salud de tu uña mientras creamos arte en tus manos.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-24 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 100 20">
+<path d="M0 10 Q 25 20 50 10 T 100 10" stroke-width="2"></path>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">remove_red_eye</span>
+                Pestañas
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Extensiones &amp; Lifting</h3>
+</div>
+<div class="order-2 lg:order-1 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUErP7q1S6152ZkpM1Fg1d4-gsftt--V8W10pRo0_U_6FQDb_2wE2a2HAjEbJcrgN-KfTHBVZvLh8nYK4pv_9pxaa_QQ7v0ePEELL2weB21KbQ25ptRHDtEXKdajvyjQyJGGer98Zsks7Epq1-Q7saeNW8aha05A4SxxgxLzZ9KRHaYHKfFPsBrfAsjPpwXBcLulIsK_rKWvIIp4U2UuUgxn-SZKpFVB-JaxwZRHsBS1hyxsbl6xXIhiUn711FhGArqoIK7RyM-iQ');"></div>
+</div>
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuW5XZTQXU7N5y2dm6wjoOTmZBxRkK4EiHrPkZSfOx6e_SRJYC6Kz29cYB2tt11z9jW3x7HMbTtGgQ1MSWgSCqw70jP7T2yWPagG7aRlc6ZeTXIRTS72vXNrlro-2rJApqvQQ6Jv_DD1Aj9hOjTK5HFbpS25rJB3PyjXHWYFCsUPbdpPJr2CpKXt27mrR-1SVbg7pfwWJTz6xAEwDq-kuRgKBWO_2KKT2Y83vrrM6aOJuskHHXIkStNXwEKeHHl0XLo3Eh7O_AGAg');"></div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-white shadow-sm"></span>
+<span class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></span>
+</div>
+</div>
+<svg class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 text-primary/20 w-32 h-32 -z-10" fill="currentColor" viewBox="0 0 200 200">
+<path d="M45,-76C58.3,-69.3,69.1,-58.5,77.4,-46.4C85.7,-34.3,91.5,-20.9,90.3,-7.9C89.1,5.1,80.9,17.7,71.7,28.8C62.5,39.9,52.3,49.5,40.9,57.8C29.5,66.1,16.9,73.1,3.4,74.2C-10.1,75.3,-24.5,70.5,-37.8,63.2C-51.1,55.9,-63.3,46.1,-71.5,33.5C-79.7,20.9,-83.9,5.5,-81.7,-8.7C-79.5,-22.9,-70.9,-35.9,-60.2,-44.6C-49.5,-53.3,-36.7,-57.7,-24.4,-65.1C-12.1,-72.5,-0.3,-82.9,12.5,-84.9C25.3,-86.9,48.1,-80.5,45,-76Z" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="order-3 lg:order-2 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">remove_red_eye</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Pestañas</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Extensiones &amp; Lifting</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                Realza tu mirada con el tratamiento que mejor se adapte a ti. Lifting para un efecto natural de pestañas infinitas, o extensiones pelo a pelo y volumen ruso para una intensidad magnética.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-24 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 100 20">
+<path d="M0 10 Q 25 0 50 10 T 100 10" stroke-width="2"></path>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">flash_on</span>
+                Láser Diodo
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Depilación Definitiva</h3>
+</div>
+<div class="order-2 lg:order-2 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+</div>
+</div>
+</div>
+<div class="absolute top-4 -right-4 bg-primary/10 w-full h-full rounded-[2.5rem] -z-10 transform rotate-2"></div>
+</div>
+<div class="order-3 lg:order-1 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">flash_on</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Láser Diodo</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Depilación Definitiva</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                Olvídate del vello para siempre con nuestra tecnología de alta potencia indolora. Resultados visibles desde la primera sesión, apto para todo tipo de pieles y en cualquier época del año.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="currentColor" r="2"></circle>
+<circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+<circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                Láser IPL
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Rejuvenecimiento Facial</h3>
+</div>
+<div class="order-2 lg:order-1 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-text-main text-xs font-bold shadow-sm">
+<span class="block">Antes: Manchas</span>
+<span class="block text-primary">Ahora: Piel Radiante</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-3 lg:order-2 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">auto_awesome</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Láser IPL</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Rejuvenecimiento Facial</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                Luz pulsada intensa para tratar manchas solares, rojeces y líneas de expresión. Unifica el tono de tu piel, estimula el colágeno y devuelve la luminosidad perdida al rostro, cuello y escote.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center py-8 lg:py-16 opacity-30">
+<svg class="w-24 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 100 20">
+<path d="M0 10 Q 25 20 50 10 T 100 10" stroke-width="2"></path>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center group relative py-8">
+<div class="lg:hidden w-full text-center space-y-2 mb-4">
+<h2 class="text-2xl font-semibold text-text-main flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">content_cut</span>
+                Depilación con Hilo
+            </h2>
+<h3 class="text-base text-primary font-medium font-handwriting text-xl">Precisión Milimétrica</h3>
+</div>
+<div class="order-2 lg:order-2 relative">
+<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
+<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
+<div class="min-w-full carousel-item relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCml4q93_Gp3qdpPJR5N1qbg0lDUnGF2jOXadW2T_hggiG4gTjCF2eJyH7ZzK5azBrqkDykWOnOsMWbqigy-31LFK9Kl--Fa8y9HIn2sg0htW94w0-3Yx5RdfyThwoGm3ST1rBIRzs7ohn_bmgmlA72SLog7IaIk22pRa4DW-mbN8IptuQF7xa9cLIECd6gmuXud03kLgdmzarFR0WsdhelO-xKF3FOkEORBx9xps26pGen5oZKDP8dVvVNSVi2dRFHpHKdn7-0GH4');"></div>
+</div>
+</div>
+</div>
+<svg class="absolute -bottom-10 -right-4 w-20 h-20 text-text-main/20 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 100">
+<path d="M10,10 Q50,50 80,20" stroke-linecap="round"></path>
+<path d="M80,20 L70,25 M80,20 L75,35" stroke-linecap="round"></path>
+</svg>
+</div>
+<div class="order-3 lg:order-1 space-y-6 text-center lg:text-left mt-6 lg:mt-0">
+<div class="hidden lg:block space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">content_cut</span>
+</span>
+<h2 class="text-3xl md:text-4xl font-semibold text-text-main">Depilación con Hilo</h2>
+</div>
+<h3 class="text-lg text-primary font-medium">Precisión Milimétrica</h3>
+</div>
+<p class="text-gray-600 font-light leading-relaxed text-lg">
+                La técnica ancestral más respetuosa con tu piel. Perfecta para definir cejas y eliminar vello facial con máxima precisión, sin irritaciones ni flacidez. Acabado limpio y duradero.
+            </p>
+<div class="pt-4">
+<button class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover">
+<span>Reserva en Booksy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 px-6 bg-[#fcfbf9] relative">
+<div class="max-w-3xl mx-auto relative z-10">
+<div class="text-center mb-12 relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-5xl opacity-10 text-primary animate-pulse-sage">?</span>
+<h2 class="text-4xl font-semibold text-text-main mb-2">Preguntas Frecuentes</h2>
+<p class="text-primary font-handwriting text-2xl rotate-2">Todo lo que necesitas saber</p>
+</div>
+<div class="space-y-4">
+<details class="group bg-white rounded-2xl border border-primary/10 overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none text-lg font-medium text-text-main hover:text-primary transition-colors">
+<span>¿Cómo puedo reservar una cita?</span>
+<span class="material-symbols-outlined transform transition-transform duration-300 group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-gray-600 font-light leading-relaxed border-t border-gray-50 pt-4">
+                    La forma más rápida y cómoda es a través de nuestro botón "Reserva en Booksy", disponible en toda la web. También puedes contactarnos por teléfono o WhatsApp para consultas específicas.
+                </div>
+</details>
+<details class="group bg-white rounded-2xl border border-primary/10 overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none text-lg font-medium text-text-main hover:text-primary transition-colors">
+<span>¿Es dolorosa la micropigmentación?</span>
+<span class="material-symbols-outlined transform transition-transform duration-300 group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-gray-600 font-light leading-relaxed border-t border-gray-50 pt-4">
+                    Utilizamos anestésicos tópicos de alta calidad para minimizar cualquier molestia. La mayoría de nuestras clientas describen la sensación como un leve hormigueo, totalmente soportable.
+                </div>
+</details>
+<details class="group bg-white rounded-2xl border border-primary/10 overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none text-lg font-medium text-text-main hover:text-primary transition-colors">
+<span>¿Cuánto tiempo duran los resultados?</span>
+<span class="material-symbols-outlined transform transition-transform duration-300 group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-gray-600 font-light leading-relaxed border-t border-gray-50 pt-4">
+                    Depende del tratamiento y tipo de piel. El microblading suele durar entre 8 y 18 meses, mientras que las extensiones de pestañas requieren rellenos cada 3-4 semanas para mantenerse perfectas.
+                </div>
+</details>
+<details class="group bg-white rounded-2xl border border-primary/10 overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none text-lg font-medium text-text-main hover:text-primary transition-colors">
+<span>¿Qué cuidados debo tener después del tratamiento?</span>
+<span class="material-symbols-outlined transform transition-transform duration-300 group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-gray-600 font-light leading-relaxed border-t border-gray-50 pt-4">
+                    Te proporcionaremos una guía detallada de cuidados posteriores para cada servicio. Generalmente implica evitar sol directo, saunas y ciertos productos cosméticos en la zona tratada durante los primeros días.
+                </div>
+</details>
+<details class="group bg-white rounded-2xl border border-primary/10 overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none text-lg font-medium text-text-main hover:text-primary transition-colors">
+<span>¿Ofrecéis tarjetas regalo?</span>
+<span class="material-symbols-outlined transform transition-transform duration-300 group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-gray-600 font-light leading-relaxed border-t border-gray-50 pt-4">
+                    ¡Sí! Disponemos de tarjetas regalo digitales y físicas personalizables por el importe o servicio que desees. El regalo perfecto para cuidar a quien más quieres.
+                </div>
+</details>
+</div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 text-accent-sage/20 -z-10 rotate-12">
+<svg fill="currentColor" viewBox="0 0 200 200">
+<path d="M45,-76C58.3,-69.3,69.1,-58.5,77.4,-46.4C85.7,-34.3,91.5,-20.9,90.3,-7.9C89.1,5.1,80.9,17.7,71.7,28.8C62.5,39.9,52.3,49.5,40.9,57.8C29.5,66.1,16.9,73.1,3.4,74.2C-10.1,75.3,-24.5,70.5,-37.8,63.2C-51.1,55.9,-63.3,46.1,-71.5,33.5C-79.7,20.9,-83.9,5.5,-81.7,-8.7C-79.5,-22.9,-70.9,-35.9,-60.2,-44.6C-49.5,-53.3,-36.7,-57.7,-24.4,-65.1C-12.1,-72.5,-0.3,-82.9,12.5,-84.9C25.3,-86.9,48.1,-80.5,45,-76Z" transform="translate(100 100)"></path>
+</svg>
+</div>
+</div>
+</section>
+<footer class="bg-stone-dark text-primary-light py-20 px-6 rounded-t-[3rem] mt-0">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">spa</span>
+<span class="text-white text-lg font-semibold tracking-wide uppercase">Tamara Encuentra</span>
+</div>
+<p class="text-white/60 text-sm leading-relaxed max-w-xs font-light">
+                Tu santuario de belleza. Especialistas en realzar tu naturalidad con tecnología y experiencia.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">videocam</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Menu</h4>
+<ul class="space-y-3 text-sm font-light text-white/70">
+<li><a class="hover:text-primary transition-colors" href="#">Servicios</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Formación</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sobre nosotras</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tarjetas Regalo</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Contacto</h4>
+<ul class="space-y-4 text-sm font-light text-white/70">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5 text-lg">location_on</span>
+<span>Calle Velázquez 45,<br/>28001 Madrid</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<span>+34 912 345 678</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<span>hola@tamaraencuentra.com</span>
+</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-medium tracking-widest uppercase text-xs">Encuéntranos</h4>
+<div class="w-full aspect-video rounded-2xl bg-[#3a3630] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100 border border-white/10">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjW4P_v4bpCfYglKl9wMj82dXz0Bb_fl6M-Qr1pp-0rVDU7mHyd7tgGdkfbSqCDVIZYsU6TcSu1aAROe2NVNZiad6ERoD1N_99HNnsv5H-g70HF8eZa2NBBkSG9WQL0ik125ljWIc7Bzhg6_laY-nETecKqmK6WSt7v76NO3qF2IWfvNpFIhDi6aoZTDARiv1C0kLYbB2dkkbD7YMiMT_dSkS24Qu_B2OFvRWbN6dFwWNW-pI9clyRnvlsZGVmRP1Bye9marpmRJ0');"></div>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-light">
+<p>© 2024 Tamara Encuentra. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Aviso Legal</a>
+<a class="hover:text-white transition-colors" href="#">Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-md bg-stone-900/80 transition-all duration-500" id="video-modal">
+<a aria-label="Close modal" class="absolute inset-0 cursor-default" href="#"></a>
+<div class="modal-content relative w-full max-w-[360px] aspect-[9/16] bg-black rounded-[2.5rem] shadow-2xl overflow-hidden ring-4 ring-stone-800 border-[8px] border-stone-800">
+<div class="absolute inset-0 bg-stone-900 flex items-center justify-center">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="w-full h-full object-cover scale-[1.02]" frameborder="0" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&amp;controls=0&amp;modestbranding=1&amp;loop=1&amp;playlist=dQw4w9WgXcQ" title="Brand Reel"></iframe>
+</div>
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+<div class="absolute top-0 left-0 right-0 p-5 flex justify-between items-start z-20">
+<div class="text-[10px] font-medium text-white/80 tracking-wide">12:45</div>
+<a class="w-8 h-8 -mr-1 -mt-1 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/30 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:rotate-90 transition-transform">close</span>
+</a>
+</div>
+<div class="absolute inset-0 pointer-events-none flex flex-col justify-end p-5 z-20">
+<div class="absolute right-4 bottom-20 flex flex-col items-center gap-6 pointer-events-auto">
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-white text-xs font-medium drop-shadow-md">2.4k</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md group-hover:scale-110 transition-transform">chat_bubble</span>
+<span class="text-white text-xs font-medium drop-shadow-md">48</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md group-hover:scale-110 transition-transform">send</span>
+</div>
+</div>
+<div class="space-y-4 pr-12">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-md">
+<img alt="Tamara" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA"/>
+</div>
+<div class="text-white drop-shadow-md">
+<div class="text-sm font-semibold flex items-center gap-1">
+                            tamara.encuentra
+                            <span class="material-symbols-outlined text-[14px] text-blue-400 fill-current">verified</span>
+</div>
+<div class="text-xs opacity-90 font-light">Original Audio</div>
+</div>
+</div>
+<p class="text-white text-sm font-light drop-shadow-md line-clamp-2">
+                    Descubre la magia de la micropigmentación ✨ Resultados naturales que enamoran. #belleza #madrid
+                </p>
+<div class="flex items-center gap-3 pt-2 pointer-events-auto">
+<button class="text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl drop-shadow-md">play_arrow</span>
+</button>
+<div class="flex-1 h-1 bg-white/30 rounded-full overflow-hidden cursor-pointer group">
+<div class="w-1/3 h-full bg-primary group-hover:bg-white transition-colors"></div>
+</div>
+<button class="text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl drop-shadow-md">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute top-1/2 left-[calc(50%+200px)] -translate-y-1/2 hidden lg:block pointer-events-none animate-float-slow">
+<svg class="w-24 h-24 text-white/20 -rotate-12" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 100 100">
+<path d="M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M15 85 L85 15" stroke-linecap="round"></path>
+<circle cx="50" cy="50" r="10" stroke-width="0.5"></circle>
+</svg>
+</div>
+<a class="absolute top-6 right-6 text-white/40 hover:text-white transition-colors hidden md:block z-50" href="#">
+<span class="material-symbols-outlined text-4xl">close</span>
+</a>
+</div>
+</div></body></html>
