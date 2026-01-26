@@ -156,24 +156,6 @@
         z-index: 10;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    .video-hero {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-    }.hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(252, 251, 249, 0.75);
-        z-index: -1;
-        backdrop-filter: blur(2px);
-    }
     .snap-mandatory-x {
         scroll-snap-type: x mandatory;
     }
@@ -189,22 +171,6 @@
             justify-content: center;
             padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));
             padding-top: 7rem;
-        }
-        .video-hero {
-            display: block;
-        }
-        .hero-bg-mobile {
-            display: none;
-        }
-        .hero-overlay-mobile {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(252, 251, 249, 0.6);
-            z-index: -1;
-            backdrop-filter: blur(2px);
         }.glass-nav {
             background: transparent !important;
             backdrop-filter: none !important;
@@ -265,13 +231,7 @@
 </a>
 </div>
 </nav>
-<section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-center justify-center mobile-hero-container">
-<video autoplay loop muted playsinline preload="auto" class="video-hero">
-<source src="assets/video-hero.mp4" type="video/mp4"/>
-</video>
-<div class="hero-bg-mobile"></div>
-<div class="hero-overlay hidden md:block"></div>
-<div class="hero-overlay-mobile md:hidden"></div>
+<section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col items-center justify-center mobile-hero-container bg-[#f7f5f2]">
 <div class="max-w-[1000px] mx-auto w-full relative z-10 text-center flex flex-col items-center">
 <div class="inline-flex items-center px-4 py-2 bg-white/60 backdrop-blur border border-primary/20 rounded-full text-[10px] md:text-xs font-semibold tracking-wider uppercase text-primary shadow-sm w-fit animate-pulse-sage transition-all duration-500 mb-6">
 <span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
@@ -318,7 +278,7 @@
 <h2 class="text-3xl md:text-5xl font-light text-text-main leading-tight">
                     Mi nombre es <br/>
 <span class="inline-block mt-2 mb-2">
-                        <img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-16 md:h-20 w-auto object-contain">
+                        <img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 md:h-14 w-auto object-contain">
 </span> <br/>
                     y soy la fundadora.
                 </h2>

@@ -148,45 +148,12 @@
         pointer-events: none;
         z-index: 10;
     }
-    .video-hero {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-    }.hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(252, 251, 249, 0.75);
-        z-index: -1;
-        backdrop-filter: blur(2px);
-    }@media (max-width: 768px) {
+    @media (max-width: 768px) {
         .mobile-hero-container {
             min-height: 100svh;height: 100svh;
             display: flex;
             flex-direction: column;
             justify-content: center;padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));padding-top: 5rem;
-        }
-        .video-hero {
-            display: block;
-        }
-        .hero-bg-mobile {
-            display: none;
-        }
-        .hero-overlay-mobile {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(252, 251, 249, 0.6);
-            z-index: -1;
-            backdrop-filter: blur(2px);
         }.glass-nav {
             background: transparent !important;
             backdrop-filter: none !important;
@@ -245,14 +212,16 @@
 </a>
 </div>
 </nav>
-<section class="relative min-h-[100vh] md:min-h-screen pt-20 pb-32 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between mobile-hero-container">
-<video autoplay loop muted playsinline preload="auto" class="video-hero">
-<source src="assets/video-hero.mp4" type="video/mp4"/>
-</video>
-<div class="hero-overlay hidden md:block"></div>
-<div class="hero-overlay-mobile md:hidden"></div>
-<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-24 items-center w-full relative z-10 h-auto flex-grow md:flex-grow-0 mb-8 md:mb-0">
-<div class="flex flex-col justify-end md:justify-start gap-6 md:gap-8 order-2 lg:order-1 relative z-10 h-full md:h-auto pb-4 md:pb-0">
+<section class="relative min-h-[100vh] md:min-h-screen pt-20 pb-32 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between mobile-hero-container bg-background-light">
+<!-- Video Background (Mobile Only) -->
+<div class="absolute inset-0 z-0 md:hidden">
+    <video autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
+        <source src="assets/video-hero.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
+</div>
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-24 items-center w-full relative z-10 h-auto flex-grow md:flex-grow-0 mb-8 md:mb-0">
+<div class="flex flex-col justify-end md:justify-start gap-6 md:gap-8 order-2 md:order-1 relative z-10 h-full md:h-auto pb-4 md:pb-0">
 <div class="absolute -top-10 -left-10 md:-left-16 text-primary/30 rotate-12 animate-pulse-sage hidden lg:block">
 <svg class="w-16 h-16" fill="currentColor" viewbox="0 0 24 24">
 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"></path>
@@ -325,7 +294,7 @@
 </div>
 </div>
 </div>
-<div class="order-1 lg:order-2 relative hidden lg:flex justify-center lg:justify-end">
+<div class="order-1 md:order-2 relative hidden md:flex justify-center lg:justify-end">
 <div class="relative w-full max-w-[420px]">
 <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl aspect-[9/16] border-[6px] border-white/50 bg-white/20 backdrop-blur-md">
 <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
