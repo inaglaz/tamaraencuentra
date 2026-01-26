@@ -58,8 +58,8 @@
               '50%': { boxShadow: '0 0 15px 0 rgba(174, 181, 163, 0.2)', borderColor: '#aeb5a3', backgroundColor: 'rgba(174, 181, 163, 0.15)' },
             },
             drawUnderline: {
-              '0%': { strokeDasharray: '0, 100' },
-              '100%': { strokeDasharray: '100, 0' },
+              '0%': { width: '0%' },
+              '100%': { width: '100%' },
             },
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
@@ -210,18 +210,17 @@
 <section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col justify-center items-center bg-[#f7f5f2]">
 <div class="max-w-[1280px] mx-auto relative z-20 text-center flex flex-col items-center">
 <div class="mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
-<span class="inline-block px-5 py-2 rounded-full border border-accent-sage/30 bg-accent-sage/10 text-accent-sage text-xs md:text-sm font-medium tracking-[0.2em] uppercase transition-all duration-700 hover:bg-accent-sage/20 animate-pulse-sage">
+<span class="inline-flex items-center px-4 py-2 bg-white/60 backdrop-blur border border-primary/20 rounded-full text-[10px] md:text-xs font-semibold tracking-wider uppercase text-primary shadow-sm w-fit animate-pulse-sage transition-all duration-500 mb-2 md:mb-0">
+<span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
         Experiencias
         </span>
 </div>
 <h1 class="text-4xl sm:text-5xl md:text-7xl font-semibold text-text-main mb-8 relative leading-tight animate-fade-in-up drop-shadow-sm max-w-5xl" style="animation-delay: 0.2s;">
         Calidad profesional y
-        <span class="relative inline-block">
-<span class="text-primary italic font-light">humana</span>
-<svg class="absolute -bottom-1 left-0 w-full h-3 text-primary pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 15">
-<path class="animate-draw-underline" d="M0 10 Q 50 18 100 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3" style="opacity: 0.7;"></path>
-</svg>
-</span>
+        <span class="text-primary italic font-light relative inline-block">
+            humana
+            <span class="underline-brush animate-draw-underline"></span>
+        </span>
 </h1>
 <p class="text-base md:text-xl text-gray-600 font-light max-w-2xl leading-relaxed animate-fade-in-up drop-shadow-sm md:drop-shadow-none mb-10" style="animation-delay: 0.3s;">
         Fusionamos años de experiencia y las últimas tendencias para ofrecerte un cuidado a tu altura, en un espacio donde tú siempre eres la prioridad.
