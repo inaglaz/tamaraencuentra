@@ -528,10 +528,12 @@
 </section>
 <section class="py-24 px-6 bg-[#f5f3ef] relative overflow-hidden" id="formacion">
 <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div class="relative order-2 lg:order-1 group cursor-pointer">
+<div class="relative order-2 lg:order-1 group cursor-pointer" id="open-video-modal">
 <div class="relative rounded-[3rem] overflow-hidden aspect-[4/3] shadow-2xl border-4 border-white">
 <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors z-10"></div>
-<div class="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+<video poster="https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" muted playsinline loop autoplay>
+    <source src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/video-hero.mp4" type="video/mp4">
+</video>
 <div class="absolute inset-0 z-20 flex flex-col justify-between p-8">
 <div class="flex justify-end">
 <span class="bg-black/30 backdrop-blur px-3 py-1 rounded-full text-xs text-white font-mono">02:14</span>
@@ -576,15 +578,15 @@
 <span class="text-gray-700">Prácticas con modelos reales</span>
 </li>
 </ul>
-<button class="w-full sm:w-auto bg-text-main text-white px-8 py-4 rounded-full font-medium hover:bg-black transition-colors flex items-center justify-center gap-2">
+<a href="formaciones.html" class="w-full sm:w-auto bg-text-main text-white px-8 py-4 rounded-full font-medium hover:bg-black transition-colors flex items-center justify-center gap-2">
 <span>Ver próximos cursos disponibles</span>
 <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
+</a>
 </div>
 </div>
 </div>
 </section>
-<section class="py-24 px-6 bg-white relative overflow-hidden" id="equipo">
+<section class="py-24 px-6 bg-white relative overflow-visible" id="equipo">
 <div class="max-w-[1280px] mx-auto text-center relative z-10">
 <div class="mb-20 relative">
 <h2 class="text-3xl md:text-4xl font-light text-text-main mb-4">
@@ -609,59 +611,59 @@
 </div>
 </div>
 </div>
-<div class="absolute top-10 left-4 md:left-20 w-32 group animate-float-slow">
+<div class="absolute top-10 left-4 md:left-20 w-32 group animate-float-slow" tabindex="0">
 <div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto overflow-hidden mb-2 transition-transform duration-300 group-hover:scale-110">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5KMo7dowqZ7pJMLYUlLqNVCev03saRwoZF_f74LHiyVpCV9SBAV53MZwhRbFaEsqF1dqm5PxNWgETyiRQRMe9lwzeTcNyDZjbEg9lGLWerrWWTd2EBw1obefGueMJhgjEPqo0ma9x33L9BJfmmePRPKeDONf7cOq6Ih7a7T7jZXQvcFBvu6EWJvp8_kPey3GVcfxqJa7rZVvPCsU-AslNcGTa-ErW1I0jElfCi4y2gIw6GPM_kk-w59oKBmHVBfnqfHowQ4opogg');"></div>
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/index-tamara.webp');"></div>
 </div>
 <div class="bg-white/90 backdrop-blur rounded-xl px-3 py-2 shadow-sm text-center border border-gray-100">
 <p class="text-xs font-bold text-text-main">Tamara</p>
 <p class="text-[10px] text-primary">Founder &amp; Master</p>
 </div>
-<div class="absolute -top-20 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none text-center">
+<div class="absolute -top-20 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity z-50 text-center">
 <p class="text-[10px] text-gray-600 italic">"La arquitecta del rostro. Experta en microblading y micropigmentación. Mamá, emprendedora y apasionada de su trabajo."</p>
 </div>
 </div>
-<div class="absolute top-10 right-4 md:right-20 w-32 group animate-float-delayed">
+<div class="absolute top-10 right-4 md:right-20 w-32 group animate-float-delayed" tabindex="0">
 <div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto overflow-hidden mb-2 transition-transform duration-300 group-hover:scale-110">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAiLGq6nWghvJR_0OEmOW_E4fnX4nVZSwQ1HV6_PGu3GHtY4cKNSmuU3s17ccTU0abwvrw4PSivqBoCQcSkwrB8Zs9Q2eNmYlSG_mzKu7uXbvV8uTHuYM2SnvKPxFgngpk5ejrLJemprO0WsfO1iTGBZ3lncox278_ZiQ4ZNUp3s5TOxk9lXr1Vw8L8CW6bO2abeLRpKAzQe6UrX9PLYL8Cu-eMmMvVur9QbksgXdS_CrP8ubOZutZjwqpnvrUqTU_icqnSxfxRvg8');"></div>
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/index-raquel.webp');"></div>
 </div>
 <div class="bg-white/90 backdrop-blur rounded-xl px-3 py-2 shadow-sm text-center border border-gray-100">
 <p class="text-xs font-bold text-text-main">Raquel</p>
 <p class="text-[10px] text-primary">Nails Designer</p>
 </div>
-<div class="absolute -top-20 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none text-center">
+<div class="absolute -top-20 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity z-50 text-center">
 <p class="text-[10px] text-gray-600 italic">"Magia en tus manos. Especialista en las últimas tendencias. Si existe un color, Raquel lo tiene."</p>
 </div>
 </div>
-<div class="absolute bottom-20 left-4 md:left-20 w-32 group animate-float-delayed">
+<div class="absolute bottom-20 left-4 md:left-20 w-32 group animate-float-delayed" tabindex="0">
 <div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto overflow-hidden mb-2 transition-transform duration-300 group-hover:scale-110">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuW5XZTQXU7N5y2dm6wjoOTmZBxRkK4EiHrPkZSfOx6e_SRJYC6Kz29cYB2tt11z9jW3x7HMbTtGgQ1MSWgSCqw70jP7T2yWPagG7aRlc6ZeTXIRTS72vXNrlro-2rJApqvQQ6Jv_DD1Aj9hOjTK5HFbpS25rJB3PyjXHWYFCsUPbdpPJr2CpKXt27mrR-1SVbg7pfwWJTz6xAEwDq-kuRgKBWO_2KKT2Y83vrrM6aOJuskHHXIkStNXwEKeHHl0XLo3Eh7O_AGAg');"></div>
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/index-mariajose.webp');"></div>
 </div>
 <div class="bg-white/90 backdrop-blur rounded-xl px-3 py-2 shadow-sm text-center border border-gray-100">
 <p class="text-xs font-bold text-text-main">María José</p>
 <p class="text-[10px] text-primary">Lashes Expert</p>
 </div>
-<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none text-center">
+<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity z-50 text-center">
 <p class="text-[10px] text-gray-600 italic">"La delicadeza hecha pestañas. Desde el volumen ruso más impactante hasta el acabado más natural."</p>
 </div>
 </div>
-<div class="absolute bottom-20 right-4 md:right-20 w-32 group animate-float-slow">
+<div class="absolute bottom-20 right-4 md:right-20 w-32 group animate-float-slow" tabindex="0">
 <div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto overflow-hidden mb-2 transition-transform duration-300 group-hover:scale-110">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/index-veronica.webp');"></div>
 </div>
 <div class="bg-white/90 backdrop-blur rounded-xl px-3 py-2 shadow-sm text-center border border-gray-100">
 <p class="text-xs font-bold text-text-main">Verónica</p>
 <p class="text-[10px] text-primary">Laser &amp; Skin</p>
 </div>
-<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none text-center">
+<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity z-50 text-center">
 <p class="text-[10px] text-gray-600 italic">"Tu piel en las mejores manos. Experta en depilación láser y tratamientos IPL para renovar y rejuvenecer tu piel."</p>
 </div>
 </div>
 </div>
 <div class="mt-8">
-<button class="cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-10 bg-text-main text-white hover:bg-primary transition-all duration-300 text-lg font-medium shadow-soft app-hover">
+<a href="nosotras.html" class="cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-10 bg-text-main text-white hover:bg-primary transition-all duration-300 text-lg font-medium shadow-soft app-hover">
 <span>Conócenos</span>
-</button>
+</a>
 </div>
 </div>
 </section>
@@ -807,7 +809,7 @@
             Nuestra comunidad <span class="font-serif italic text-primary">en IG</span>
 </h2>
 <div class="relative group">
-<a class="relative flex items-center gap-2 px-6 py-3 bg-transparent rounded-full text-base font-medium hover:text-primary transition-colors" href="#">
+<a class="relative flex items-center gap-2 px-6 py-3 bg-transparent rounded-full text-base font-medium hover:text-primary transition-colors" href="https://www.instagram.com/tamaraencuentra/" target="_blank" rel="noopener noreferrer">
 <span>@tamaraencuentra</span>
 <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
@@ -815,33 +817,33 @@
 </div>
 <div class="relative">
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[300px]">
-<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCml4q93_Gp3qdpPJR5N1qbg0lDUnGF2jOXadW2T_hggiG4gTjCF2eJyH7ZzK5azBrqkDykWOnOsMWbqigy-31LFK9Kl--Fa8y9HIn2sg0htW94w0-3Yx5RdfyThwoGm3ST1rBIRzs7ohn_bmgmlA72SLog7IaIk22pRa4DW-mbN8IptuQF7xa9cLIECd6gmuXud03kLgdmzarFR0WsdhelO-xKF3FOkEORBx9xps26pGen5oZKDP8dVvVNSVi2dRFHpHKdn7-0GH4');"></div>
+<a href="https://www.instagram.com/tamaraencuentra/" target="_blank" rel="noopener noreferrer" class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/ig-1.webp" alt="Instagram @tamaraencuentra" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-3xl">favorite</span>
 </div>
-</div>
-<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md md:mt-8">
-<svg class="absolute -top-3 -right-3 w-8 h-8 text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewbox="0 0 24 24">
+</a>
+<a href="https://www.instagram.com/tamaraencuentra/" target="_blank" rel="noopener noreferrer" class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md md:mt-8">
+<svg class="absolute top-4 right-4 w-6 h-6 text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewbox="0 0 24 24">
 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
 </svg>
-<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3HEGx7vVPG0mCutFxIVEJL4L7Les4tCDKY0MV_c8lW_D7jLH6F0gB5GPyslndWRtY5ErrnQwyZ3wUFSVLfyMogGmTMLAckwN5Hr8eRtdVsYRLfTd6JjMvTG34mgTTVGNaigDE3NAkUYhQf9_bAXusYH87yZajBBE3xTpGneoA5FRJcyqv3J8UPLwwYn_ZQVXIhvPQSVPKVm6Ew9iaG8LOhjsR4ITtDBkjUm56CukJxIjeiPKV9z2hAR2e-xqhtVllwoRkegTJ3LI');"></div>
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/ig-2.webp" alt="Instagram @tamaraencuentra" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-3xl">favorite</span>
 </div>
-</div>
-<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA');"></div>
+</a>
+<a href="https://www.instagram.com/tamaraencuentra/" target="_blank" rel="noopener noreferrer" class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/ig-3.webp" alt="Instagram @tamaraencuentra" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-3xl">favorite</span>
 </div>
-</div>
-<div class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md md:mt-8">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g'); background-position: top;"></div>
+</a>
+<a href="https://www.instagram.com/tamaraencuentra/" target="_blank" rel="noopener noreferrer" class="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md md:mt-8">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/ig-4.webp" alt="Instagram @tamaraencuentra" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-3xl">favorite</span>
 </div>
-</div>
+</a>
 </div>
 </div>
 </section>
@@ -905,6 +907,34 @@
 </div>
 </div>
 </footer>
+<!-- Video Modal -->
+<div id="video-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <button id="close-modal" class="absolute top-6 right-6 text-white/70 hover:text-white z-[110] transition-colors">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <div class="relative w-full max-w-[450px] aspect-[9/16] bg-black shadow-2xl overflow-hidden md:rounded-2xl mx-4">
+        <video id="modal-video" class="w-full h-full object-cover" playsinline>
+            <source src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/video-hero.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none">
+            <div class="flex justify-end">
+                <button id="toggle-volume" class="pointer-events-auto w-10 h-10 rounded-full bg-black/20 backdrop-blur flex items-center justify-center text-white hover:bg-black/40 transition-all">
+                    <span class="material-symbols-outlined" id="volume-icon">volume_up</span>
+                </button>
+            </div>
+            <div class="w-full space-y-4 pointer-events-auto">
+                <div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer group relative" id="progress-container">
+                    <div id="progress-bar" class="absolute left-0 top-0 h-full bg-primary w-0"></div>
+                </div>
+                <div class="flex items-center justify-between text-white/80 text-xs font-mono">
+                    <span id="current-time">00:00</span>
+                    <span id="total-duration">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('services-container');
@@ -926,6 +956,66 @@
           left: scrollAmount,
           behavior: 'smooth'
         });
+      });
+    }
+
+    // Video Modal Logic
+    const openModalBtn = document.getElementById('open-video-modal');
+    const videoModal = document.getElementById('video-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalVideo = document.getElementById('modal-video');
+    const toggleVolumeBtn = document.getElementById('toggle-volume');
+    const volumeIcon = document.getElementById('volume-icon');
+    const progressBar = document.getElementById('progress-bar');
+    const progressContainer = document.getElementById('progress-container');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalDurationEl = document.getElementById('total-duration');
+
+    const formatTime = (time) => {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60);
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    const openModal = () => {
+      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      modalVideo.play();
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      document.body.style.overflow = '';
+    };
+
+    if (openModalBtn && videoModal && closeModalBtn && modalVideo) {
+      openModalBtn.addEventListener('click', openModal);
+      closeModalBtn.addEventListener('click', closeModal);
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeModal();
+      });
+
+      toggleVolumeBtn.addEventListener('click', () => {
+        modalVideo.muted = !modalVideo.muted;
+        volumeIcon.textContent = modalVideo.muted ? 'volume_off' : 'volume_up';
+      });
+
+      modalVideo.addEventListener('timeupdate', () => {
+        const progress = (modalVideo.currentTime / modalVideo.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+        currentTimeEl.textContent = formatTime(modalVideo.currentTime);
+      });
+
+      modalVideo.addEventListener('loadedmetadata', () => {
+        totalDurationEl.textContent = formatTime(modalVideo.duration);
+      });
+
+      progressContainer.addEventListener('click', (e) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        modalVideo.currentTime = pos * modalVideo.duration;
       });
     }
   });
