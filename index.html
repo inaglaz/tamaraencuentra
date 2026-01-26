@@ -170,20 +170,13 @@
             min-height: 100svh;height: 100svh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));padding-top: 5rem;
+            justify-content: center;padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));padding-top: 5rem;
         }
         .video-hero {
-            display: none;}
+            display: block;
+        }
         .hero-bg-mobile {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');background-position: center;
-            background-size: cover;
+            display: none;
         }
         .hero-overlay-mobile {
             position: absolute;
@@ -191,9 +184,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(240, 230, 210, 0.45);
+            background-color: rgba(252, 251, 249, 0.6);
             z-index: -1;
-            backdrop-filter: none;
+            backdrop-filter: blur(2px);
         }.glass-nav {
             background: transparent !important;
             backdrop-filter: none !important;
@@ -212,11 +205,8 @@
 <body class="bg-background-light dark:bg-background-dark text-text-main overflow-x-hidden antialiased selection:bg-primary/20 pb-20 md:pb-0">
 <nav class="fixed top-0 left-0 right-0 z-50 w-full glass-nav border-b border-primary/10 transition-all duration-300">
 <div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between relative">
-<a class="flex items-center gap-2 group relative z-50" href="index.html">
-<div class="text-primary group-hover:rotate-12 transition-transform duration-300">
-<span class="material-symbols-outlined text-3xl drop-shadow-sm md:drop-shadow-none">spa</span>
-</div>
-<h1 class="text-text-main dark:text-white text-lg font-semibold tracking-wide uppercase drop-shadow-sm md:drop-shadow-none">Tamara Encuentra</h1>
+<a class="flex items-center group absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 z-50" href="index.html">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
 </a>
 <div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
 <a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="servicios.html">Servicios</a>
@@ -256,10 +246,9 @@
 </div>
 </nav>
 <section class="relative min-h-[100vh] md:min-h-screen pt-20 pb-32 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between mobile-hero-container">
-<video autoplay="" class="video-hero hidden md:block" loop="" muted="" playsinline="">
-<source src="https://videos.pexels.com/video-files/5501308/5501308-hd_1080_1920_25fps.mp4" type="video/mp4"/>
+<video autoplay loop muted playsinline preload="auto" class="video-hero">
+<source src="assets/video-hero.mp4" type="video/mp4"/>
 </video>
-<div class="hero-bg-mobile"></div>
 <div class="hero-overlay hidden md:block"></div>
 <div class="hero-overlay-mobile md:hidden"></div>
 <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-24 items-center w-full relative z-10 h-auto flex-grow md:flex-grow-0 mb-8 md:mb-0">
@@ -338,9 +327,11 @@
 </div>
 <div class="order-1 lg:order-2 relative hidden lg:flex justify-center lg:justify-end">
 <div class="relative w-full max-w-[420px]">
-<div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl aspect-[3/4] border-[6px] border-white/50 bg-white/20 backdrop-blur-md">
+<div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl aspect-[9/16] border-[6px] border-white/50 bg-white/20 backdrop-blur-md">
 <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
-<div class="w-full h-full bg-cover bg-center opacity-90" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
+<video autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
+<source src="assets/video-hero.mp4" type="video/mp4"/>
+</video>
 </div>
 <div class="absolute top-10 -right-6 z-20 glass-pill px-4 py-2 rounded-2xl flex items-center gap-2 animate-[bounce_3s_infinite]">
 <span class="w-8 h-8 rounded-full bg-accent-sage/20 flex items-center justify-center text-accent-sage">
@@ -631,8 +622,7 @@
 <div class="relative z-20 w-32 h-32 md:w-40 md:h-40 rounded-full bg-white border-2 border-primary/20 shadow-[0_0_40px_-10px_rgba(207,170,104,0.3)] flex items-center justify-center p-2">
 <div class="w-full h-full rounded-full bg-primary/5 flex items-center justify-center">
 <div class="text-center">
-<span class="material-symbols-outlined text-4xl text-primary">spa</span>
-<p class="text-[0.6rem] font-bold uppercase tracking-widest text-text-main mt-1">Tamara<br/>Encuentra</p>
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 w-auto object-contain">
 </div>
 </div>
 </div>
@@ -876,8 +866,7 @@
 <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 <div class="space-y-6">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-3xl">spa</span>
-<span class="text-white text-lg font-semibold tracking-wide uppercase">Tamara Encuentra</span>
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 w-auto object-contain">
 </div>
 <p class="text-white/60 text-sm leading-relaxed max-w-xs font-light">
               Tu santuario de belleza. Especialistas en realzar tu naturalidad con tecnología y experiencia.
@@ -925,7 +914,7 @@
 </div>
 </div>
 <div class="max-w-[1280px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-light">
-<p>© 2024 Tamara Encuentra. Todos los derechos reservados.</p>
+<p>© 2026 Tamara Encuentra. Todos los derechos reservados.</p>
 <div class="flex gap-6">
 <a class="hover:text-white transition-colors" href="#">Aviso Legal</a>
 <a class="hover:text-white transition-colors" href="#">Privacidad</a>
