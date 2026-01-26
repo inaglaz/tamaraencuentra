@@ -156,24 +156,6 @@
         z-index: 10;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    .video-hero {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-    }.hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(252, 251, 249, 0.75);
-        z-index: -1;
-        backdrop-filter: blur(2px);
-    }
     .snap-mandatory-x {
         scroll-snap-type: x mandatory;
     }
@@ -189,24 +171,6 @@
             justify-content: center;
             padding-bottom: calc(4rem + env(safe-area-inset-bottom, 20px));
             padding-top: 7rem;
-        }
-        .video-hero {
-            display: none;}
-        .hero-bg-mobile {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            background-color: #fcfbf9;}
-        .hero-overlay-mobile {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;z-index: -1;
         }.glass-nav {
             background: transparent !important;
             backdrop-filter: none !important;
@@ -224,11 +188,8 @@
 <body class="bg-background-light dark:bg-background-dark text-text-main overflow-x-hidden antialiased selection:bg-primary/20 pb-20 md:pb-0">
 <nav class="fixed top-0 left-0 right-0 z-50 w-full glass-nav border-b border-primary/10 transition-all duration-300">
 <div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between relative">
-<a class="flex items-center gap-2 group relative z-50" href="index.html">
-<div class="text-primary group-hover:rotate-12 transition-transform duration-300">
-<span class="material-symbols-outlined text-3xl drop-shadow-sm md:drop-shadow-none">spa</span>
-</div>
-<h1 class="text-text-main dark:text-white text-lg font-semibold tracking-wide uppercase drop-shadow-sm md:drop-shadow-none">Tamara Encuentra</h1>
+<a class="flex items-center group absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 z-50" href="index.html">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
 </a>
 <div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
 <a class="text-text-main/70 dark:text-white/80 text-sm font-medium hover:text-primary transition-colors" href="servicios.html">Servicios</a>
@@ -270,13 +231,7 @@
 </a>
 </div>
 </nav>
-<section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col md:flex-row items-center justify-center mobile-hero-container">
-<video autoplay="" class="video-hero hidden md:block" loop="" muted="" playsinline="">
-<source src="https://videos.pexels.com/video-files/5501308/5501308-hd_1080_1920_25fps.mp4" type="video/mp4"/>
-</video>
-<div class="hero-bg-mobile"></div>
-<div class="hero-overlay hidden md:block"></div>
-<div class="hero-overlay-mobile md:hidden"></div>
+<section class="relative min-h-[85vh] md:min-h-screen pt-20 pb-20 px-6 md:pt-40 md:pb-24 lg:px-20 overflow-hidden flex flex-col items-center justify-center mobile-hero-container bg-[#f7f5f2]">
 <div class="max-w-[1000px] mx-auto w-full relative z-10 text-center flex flex-col items-center">
 <div class="inline-flex items-center px-4 py-2 bg-white/60 backdrop-blur border border-primary/20 rounded-full text-[10px] md:text-xs font-semibold tracking-wider uppercase text-primary shadow-sm w-fit animate-pulse-sage transition-all duration-500 mb-6">
 <span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
@@ -322,9 +277,8 @@
 <span class="font-handwriting text-2xl text-primary -rotate-2 block mb-2">Unas palabras...</span>
 <h2 class="text-3xl md:text-5xl font-light text-text-main leading-tight">
                     Mi nombre es <br/>
-<span class="font-bold relative inline-block text-4xl md:text-6xl mt-2 mb-2">
-                        Tamara Encuentra
-                        <span class="absolute bottom-2 left-0 w-full h-4 bg-primary/20 -z-10 -rotate-1 rounded-full"></span>
+<span class="inline-block mt-2 mb-2">
+                        <img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 md:h-14 w-auto object-contain">
 </span> <br/>
                     y soy la fundadora.
                 </h2>
@@ -523,8 +477,7 @@
 <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 <div class="space-y-6">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-3xl">spa</span>
-<span class="text-white text-lg font-semibold tracking-wide uppercase">Tamara Encuentra</span>
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-12 w-auto object-contain">
 </div>
 <p class="text-white/60 text-sm leading-relaxed max-w-xs font-light">
                 Tu santuario de belleza. Especialistas en realzar tu naturalidad con tecnología y experiencia.
@@ -572,7 +525,7 @@
 </div>
 </div>
 <div class="max-w-[1280px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-light">
-<p>© 2024 Tamara Encuentra. Todos los derechos reservados.</p>
+<p>© 2026 Tamara Encuentra. Todos los derechos reservados.</p>
 <div class="flex gap-6">
 <a class="hover:text-white transition-colors" href="#">Aviso Legal</a>
 <a class="hover:text-white transition-colors" href="#">Privacidad</a>
