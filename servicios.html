@@ -142,6 +142,14 @@
     summary::-webkit-details-marker {
       display: none;
     }
+    @media (max-width: 768px) {
+        .glass-nav {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-bottom: none !important;
+        }
+    }
   </style>
 </head><body class="bg-background-light dark:bg-background-dark text-text-main overflow-x-hidden antialiased selection:bg-primary/20 pb-20 md:pb-0">
 <nav class="fixed top-0 left-0 right-0 z-50 w-full glass-nav border-b border-primary/10 transition-all duration-300">
@@ -226,20 +234,20 @@
 <h3 class="text-base text-primary font-medium font-handwriting text-xl">Cejas y Labios</h3>
 </div>
 <div class="order-2 lg:order-1 relative">
-<div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 p-2">
-<div class="flex overflow-x-auto carousel-snap no-scrollbar gap-2 aspect-[4/3] rounded-[2rem]">
-<div class="min-w-full carousel-item relative">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7SHCeFzSgMr5VgDLV1v7vVNKXRBPlGvGfTVV1LM2l5UA04pQw8Xqi01nzv1pALrXbpib1rDkquf-soBz7YysriAzadE1_oRdvgVsqlhySm58GZXd6s5DqhNpcFaEhZIdHS8gbA6yLAIdvJP_9JAp8yfwyF5_02yNnp0mdc4-CMXB4igIDdfHkyZ9xcyfRcdlbbFihrZuvLJ91ZFXtN0gEeBjq8HRkDjStOdNbbVvspIdCzZc3aaEXcOEFetKxx3hJF77pAjowsHA');"></div>
-<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-lg text-white text-xs font-medium">Resultado Final</div>
+<div class="relative w-full rounded-3xl overflow-hidden shadow-lg group">
+<div id="micro-carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar aspect-[3/2]">
+<div class="min-w-full h-full snap-center relative">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/micro-despues.webp" class="w-full h-full object-cover" alt="Micropigmentación Después">
+<span class="absolute top-4 right-4 bg-primary text-white px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold shadow-sm">Después</span>
 </div>
-<div class="min-w-full carousel-item relative">
-<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv-iWAGvuKCxYvxvsEL4gHxGqzEvLxNrTccAdPpL6IDQlMLVHu4bvHAFcddh-j6TRiK8QtpZnq-57udb7l3TQTnHLFhRF1kXNwB5fV_ftyKloHIgoSBr5_XdcMRCwLGF6wENEH1PbigKhf1npx8fuGQK81_qlRKtcwa9Kyo3uyWoiquWpAoFesVc_F_U095WtRNM2ldXLWeuj73Lt2lXQyQRxIykW7V4XRMJKJyoEVO_pejYkr6FiyTWyo-NItAvS1ZTzWmhKlm-g');"></div>
-<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-lg text-white text-xs font-medium">Proceso</div>
+<div class="min-w-full h-full snap-center relative">
+<img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/micro-antes.webp" class="w-full h-full object-cover" alt="Micropigmentación Antes">
+<span class="absolute top-4 right-4 bg-stone-dark text-white px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold shadow-sm">Antes</span>
 </div>
 </div>
-<div class="absolute bottom-6 right-6 flex gap-2">
-<span class="w-2 h-2 rounded-full bg-white shadow-sm"></span>
-<span class="w-2 h-2 rounded-full bg-white/50 shadow-sm"></span>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+<div class="w-2 h-2 rounded-full bg-white shadow-sm transition-all duration-300" id="dot-0"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 shadow-sm transition-all duration-300" id="dot-1"></div>
 </div>
 </div>
 <div class="absolute -bottom-8 -left-8 text-primary/40 transform -rotate-12 z-[-1]">
@@ -261,7 +269,11 @@
 <p class="text-gray-600 font-light leading-relaxed text-lg">
                 Redefine tus rasgos con la técnica más sofisticada. Logramos un efecto maquillaje natural que realza tu belleza sin artificios, corrigiendo asimetrías y aportando color y definición de larga duración.
             </p>
-<div class="pt-4">
+<div class="pt-4 flex flex-col md:flex-row gap-4">
+<button class="open-video-preview w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-white border border-gray-200 hover:border-primary text-text-main transition-all duration-300 text-base font-medium shadow-sm app-hover" data-video-url="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/video-micropigmentacion.mp4">
+<span class="material-symbols-outlined mr-2 text-primary">play_circle</span>
+<span>Ver proceso</span>
+</button>
 <a class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center rounded-full h-14 px-8 bg-text-main text-white hover:bg-primary transition-all duration-300 text-base font-medium shadow-soft app-hover" href="https://booksy.com/es-es/16351_tamara-encuentra_cejas-y-pestanas_29946_dos-hermanas#ba_s=seo" rel="noopener noreferrer" target="_blank">
 <span>Reserva en Booksy</span>
 </a>
@@ -735,4 +747,127 @@
 </div>
 </div>
 </footer>
+<!-- Video Modal -->
+<div id="video-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <button id="close-modal" class="absolute top-6 right-6 text-white/70 hover:text-white z-[110] transition-colors">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <div class="relative w-full max-w-[450px] aspect-[9/16] bg-black shadow-2xl overflow-hidden md:rounded-2xl mx-4">
+        <video id="modal-video" class="w-full h-full object-cover" playsinline>
+            <source src="" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none">
+            <div class="flex justify-end">
+                <button id="toggle-volume" class="pointer-events-auto w-10 h-10 rounded-full bg-black/20 backdrop-blur flex items-center justify-center text-white hover:bg-black/40 transition-all">
+                    <span class="material-symbols-outlined" id="volume-icon">volume_up</span>
+                </button>
+            </div>
+            <div class="w-full space-y-4 pointer-events-auto">
+                <div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer group relative" id="progress-container">
+                    <div id="progress-bar" class="absolute left-0 top-0 h-full bg-primary w-0"></div>
+                </div>
+                <div class="flex items-center justify-between text-white/80 text-xs font-mono">
+                    <span id="current-time">00:00</span>
+                    <span id="total-duration">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Video Modal Logic
+    const videoModal = document.getElementById('video-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalVideo = document.getElementById('modal-video');
+    const videoSource = modalVideo.querySelector('source');
+    const toggleVolumeBtn = document.getElementById('toggle-volume');
+    const volumeIcon = document.getElementById('volume-icon');
+    const progressBar = document.getElementById('progress-bar');
+    const progressContainer = document.getElementById('progress-container');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalDurationEl = document.getElementById('total-duration');
+
+    const formatTime = (time) => {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60);
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    const openModal = (videoUrl) => {
+      videoSource.src = videoUrl;
+      modalVideo.load();
+      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      modalVideo.play();
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      document.body.style.overflow = '';
+    };
+
+    // Scalable: select all buttons with the preview class
+    document.querySelectorAll('.open-video-preview').forEach(button => {
+        button.addEventListener('click', () => {
+            const videoUrl = button.getAttribute('data-video-url');
+            if (videoUrl) openModal(videoUrl);
+        });
+    });
+
+    if (videoModal && closeModalBtn && modalVideo) {
+      closeModalBtn.addEventListener('click', closeModal);
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeModal();
+      });
+
+      toggleVolumeBtn.addEventListener('click', () => {
+        modalVideo.muted = !modalVideo.muted;
+        volumeIcon.textContent = modalVideo.muted ? 'volume_off' : 'volume_up';
+      });
+
+      modalVideo.addEventListener('timeupdate', () => {
+        if (modalVideo.duration) {
+            const progress = (modalVideo.currentTime / modalVideo.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            currentTimeEl.textContent = formatTime(modalVideo.currentTime);
+        }
+      });
+
+      modalVideo.addEventListener('loadedmetadata', () => {
+        totalDurationEl.textContent = formatTime(modalVideo.duration);
+      });
+
+      progressContainer.addEventListener('click', (e) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        modalVideo.currentTime = pos * modalVideo.duration;
+      });
+    }
+
+    // Micropigmentación Carousel Logic
+    const microCarousel = document.getElementById('micro-carousel');
+    const dots = [document.getElementById('dot-0'), document.getElementById('dot-1')];
+
+    if (microCarousel && dots[0] && dots[1]) {
+        microCarousel.addEventListener('scroll', () => {
+            const scrollLeft = microCarousel.scrollLeft;
+            const width = microCarousel.offsetWidth;
+            const activeIndex = Math.round(scrollLeft / width);
+
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+        });
+    }
+  });
+</script>
 </body></html>
