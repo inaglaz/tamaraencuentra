@@ -117,9 +117,9 @@
     }
     .underline-brush {
         position: absolute;
-        bottom: 0.1em;
+        bottom: 0;
         left: 0;
-        height: 0.4em;
+        height: 0.5em;
         background-color: rgba(207, 170, 104, 0.4);
         z-index: -1;
         transform: skew(-10deg) rotate(-1deg);
@@ -282,10 +282,10 @@
         </div>
 <h1 class="text-text-main dark:text-white text-[2.8rem] leading-[1.15] sm:text-6xl lg:text-[5rem] font-medium md:leading-[1.1] tracking-tight relative drop-shadow-md md:drop-shadow-none mb-6">
 <span class="block">Tu</span>
-<span class="text-primary italic font-light relative inline-block">
-<span class="relative z-10">futuro profesional</span>
-<span class="underline-brush animate-draw-underline"></span>
-</span>
+<span class="text-primary italic font-light relative inline-block z-10">
+                        <span class="relative inline-block">futuro<span class="underline-brush animate-draw-underline"></span></span>
+                        <span class="relative inline-block">profesional<span class="underline-brush animate-draw-underline"></span></span>
+                    </span>
 <span class="block">te espera</span>
 </h1>
 <p class="text-text-main/80 dark:text-white text-base md:text-xl leading-relaxed max-w-2xl font-light mx-auto mb-10">
@@ -309,63 +309,56 @@
 <section class="py-20 px-6 bg-background-light relative">
 <div class="max-w-[1280px] mx-auto">
 <div class="text-center mb-16 relative">
-<h2 class="text-3xl md:text-4xl font-light text-text-main">
-                ¿Por qué <span class="font-bold italic text-primary relative">
-                    elegir nuestras formaciones?
-                    <svg class="absolute -top-6 -right-6 w-8 h-8 text-primary rotate-12" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</span>
-</h2>
+                <h2 class="text-3xl md:text-5xl font-light text-text-main mb-6">
+                    ¿Por qué elegir <span class="text-primary italic font-light relative inline-block z-10">
+                        <span class="relative inline-block">nuestras<span class="underline-brush animate-draw-underline"></span></span>
+                        <span class="relative inline-block">formaciones?<span class="underline-brush animate-draw-underline"></span></span>
+                    </span>
+                </h2>
 <p class="text-gray-500 mt-4 font-light">La diferencia está en los detalles y en la pasión.</p>
 </div>
 <div class="flex flex-row md:grid md:grid-cols-2 gap-4 md:gap-12 overflow-x-auto md:overflow-visible pb-8 md:pb-0 px-1 md:px-0 snap-mandatory-x no-scrollbar">
-<div class="min-w-[85vw] md:min-w-0 snap-center bg-white/50 backdrop-blur-xl border border-primary/20 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(207,170,104,0.15)] relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-full min-w-[85vw] md:min-w-0 snap-center bg-white/50 backdrop-blur-xl border border-primary/20 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(207,170,104,0.15)] relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
 <div class="md:hidden absolute top-1/2 right-4 -translate-y-1/2 animate-pulse text-primary/40 pointer-events-none z-10">
 <span class="material-symbols-outlined text-4xl">arrow_forward_ios</span>
 </div>
 <div class="flex items-center gap-4 mb-8">
 <img src="https://cdn.jsdelivr.net/gh/inaglaz/tamaraencuentra/assets/logo.png" alt="Tamara Encuentra" class="h-10 w-auto object-contain">
+                        <h3 class="text-2xl font-bold text-text-main">Tamara Encuentra</h3>
 </div>
 <ul class="space-y-4 premium-list">
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Salida profesional real</p>
+                            <p class="font-semibold text-text-main text-sm">Prácticas en modelo real</p>
 </li>
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">La formación más completa del mercado</p>
+                            <p class="font-semibold text-text-main text-sm">Máster con experiencia profesional</p>
 </li>
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Recibes un kit profesional</p>
+                            <p class="font-semibold text-text-main text-sm">Diploma certificado</p>
 </li>
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Atención individualizada</p>
+                            <p class="font-semibold text-text-main text-sm">Preparación para trabajar como profesional independiente</p>
 </li>
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Grupos muy reducidos</p>
+                            <p class="font-semibold text-text-main text-sm">Soporte y seguimiento tras el curso</p>
 </li>
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Práctica de modelos reales</p>
+                            <p class="font-semibold text-text-main text-sm">Atención personalizada y grupos muy reducidos</p>
 </li>
 <li class="flex items-start gap-3">
 <div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Diploma del curso</p>
-</li>
-<li class="flex items-start gap-3">
-<div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Seguimiento post formación</p>
-</li>
-<li class="flex items-start gap-3">
-<div class="premium-check flex-shrink-0 mt-0.5"></div>
-<p class="font-semibold text-text-main text-sm">Acceso a un grupo de Whatsapp con Tamara</p>
+                            <p class="font-semibold text-text-main text-sm">Apoyo vía WhatsApp continuo para el alumno</p>
 </li>
 </ul>
 </div>
-<div class="min-w-[85vw] md:min-w-0 snap-center bg-gray-50 border border-gray-200 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden opacity-90">
+<div class="h-full min-w-[85vw] md:min-w-0 snap-center bg-gray-50 border border-gray-200 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden opacity-90">
 <div class="flex items-center gap-4 mb-8">
 <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
 <span class="material-symbols-outlined">domain</span>
@@ -375,39 +368,23 @@
 <ul class="space-y-4 grayscale opacity-60">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Sin bolsa de empleo</p>
+                            <p class="font-medium text-gray-500 text-sm">Cursos genéricos, poco prácticos</p>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Temario básico y obsoleto</p>
+                            <p class="font-medium text-gray-500 text-sm">Sin apoyo tras finalizar el curso</p>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Materiales a compartir o coste extra</p>
+                            <p class="font-medium text-gray-500 text-sm">Sin seguimiento post curso del alumno</p>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Clases masificadas</p>
+                            <p class="font-medium text-gray-500 text-sm">Clases masivas sin atención individual</p>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Grupos grandes (10+ personas)</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Práctica en piel sintética</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Certificado de asistencia simple</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Sin soporte tras el curso</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-gray-400 mt-0.5">cancel</span>
-<p class="font-medium text-gray-500 text-sm">Sin contacto directo con el formador</p>
+                            <p class="font-medium text-gray-500 text-sm">Materiales y productos básicos, no profesionales</p>
 </li>
 </ul>
 </div>
@@ -444,42 +421,81 @@
 </div>
 </div>
 <div class="p-6 flex-1 flex flex-col">
-<h3 class="text-xl font-bold text-text-main mb-1">Masterclass Velvet Cejas</h3>
-<p class="text-sm text-gray-400 mb-6 font-light">Nivel intermedio/avanzado</p>
+<h3 class="text-xl font-bold text-text-main mb-1">Masterclass BROWS EXPERT MICROPIGMENTACIÓN</h3>
+                        <p class="text-sm text-gray-400 mb-6 font-light">Nivel Principiante</p>
 <div class="space-y-4 mb-8 flex-1">
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">calendar_month</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Sábado, 31 Ene 2026</p>
-<p class="text-xs text-gray-500">10:00 - 18:00 (12 horas totales)</p>
+<p class="text-sm font-semibold text-text-main">6-8 Mar o 10-12 Abr 2026</p>
+<p class="text-xs text-gray-500">3 días</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Presencial Sevilla</p>
-<p class="text-xs text-gray-500">Calle Sierpes 12</p>
+<p class="text-sm font-semibold text-text-main">Presencial</p>
+<p class="text-xs text-gray-500">Dos Hermanas</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">people</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Plazas: 3</p>
-<p class="text-xs text-gray-500">Últimos cupos</p>
+<p class="text-sm font-semibold text-text-main">3 alumnos</p>
+<p class="text-xs text-gray-500">Grupo reducido</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">payments</span>
 <div>
-<p class="text-sm font-semibold text-text-main">A consultar</p>
-<p class="text-xs text-gray-500">Facilidades de pago</p>
+<p class="text-sm font-semibold text-text-main">1.250€</p>
+<p class="text-xs text-gray-500">Material incluido</p>
 </div>
 </div>
 </div>
 <div class="space-y-2">
-<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<a href="https://wa.me/34647663121?text=Hola,%20me%20interesa%20la%20Masterclass%20Brows%20Expert" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
 <span>Reservar por WhatsApp</span>
-</button>
+</a>
+<details class="group mt-4">
+<summary class="flex items-center justify-center gap-1 cursor-pointer list-none text-gray-500 hover:text-primary transition-colors text-sm font-medium">
+<span>Más información</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 text-sm text-gray-600 leading-relaxed space-y-4 bg-white/30 backdrop-blur-sm rounded-xl p-4 border border-primary/10">
+<p>Demostración en <strong>modelo real realizado por Tamara Encuentra</strong>, donde enseñará sus trucos profesionales y la ejecución precisa de las técnicas, que permite resultados elegantes, suaves y diferenciados en cabina.</p>
+<p class="font-bold">Durante la formación aprenderás:</p>
+<ul class="space-y-2">
+<li>✨ <strong>Metodología profesional</strong> aplicada a las técnicas pelo a pelo y efecto polvo/velvet</li>
+<li>🎯 Cómo elegir la <strong>técnica adecuada</strong> según el tipo de piel de cada clienta.</li>
+<li>✍️ Creación de pelos y píxeles finos, homogéneos y naturales.</li>
+<li>💫 Movimiento pendular correcto para un acabado <strong>limpio y controlado</strong>.</li>
+<li>🎨 Corrección y neutralización de trabajos anteriores con criterio técnico.</li>
+<li>🤝 Asesoramiento con el cliente para elegir la técnica ideal.</li>
+<li>📐 Posición ideal de la clienta en camilla para mayor precisión y ergonomía.</li>
+<li>📸 Técnica de <strong>fotografía estratégica</strong> para redes sociales y posicionamiento profesional.</li>
+<li>💬 Acceso permanente a mi <strong>grupo privado de apoyo</strong> y resolución de dudas tras la formación.</li>
+</ul>
+<div class="space-y-2 pt-2 border-t border-primary/10">
+<p><strong>🕒 PRIMER y SEGUNDO DÍA:</strong> De 11.00h a 18.00h</p>
+<ul class="list-disc ml-4 space-y-1">
+<li>Presentación y bienvenida</li>
+<li>Teoría especializada impartida por Tamara, basada en experiencia real en cabina</li>
+<li>Diseño y visagismo de cejas</li>
+<li>Práctica intensiva en látex</li>
+<li>Pigmentología aplicada a resultados reales</li>
+<li>Demostración completa de la técnica en modelo real realizada por Tamara</li>
+</ul>
+<p><strong>🕒 TERCER DÍA:</strong></p>
+<ul class="list-disc ml-4 space-y-1">
+<li><strong>De 10:00h a 13:30h:</strong> Prácticas en modelo real guiadas y supervisadas personalmente por Tamara con técnica pelo a pelo</li>
+<li><strong>De 15:00h a 17:00h:</strong> Segunda práctica en modelo real con corrección individual con técnica MICROPIGMENTACIÓN</li>
+</ul>
+</div>
+<p class="mt-2 text-xs">🎁 <strong>KIT INCLUIDO:</strong> Agujas, dermógrafo, manual de trabajo y teoría, lápiz de diseño, bolígrafo, calibre, regla, hilo de marcado, crema curación, anillo pigmentos.</p>
+<p class="mt-2">Mi objetivo es que cada alumna finalice la formación segura, preparada y capacitada para trabajar con clientas reales desde el primer momento, aplicando protocolos profesionales y resultados de alta calidad.</p>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -493,35 +509,81 @@
 </div>
 </div>
 <div class="p-6 flex-1 flex flex-col">
-<h3 class="text-xl font-bold text-text-main mb-1">Iniciación Microblading</h3>
-<p class="text-sm text-gray-400 mb-6 font-light">Desde cero</p>
+<h3 class="text-xl font-bold text-text-main mb-1">Masterclass CEJAS Y LABIOS</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Nivel Principiante</p>
 <div class="space-y-4 mb-8 flex-1">
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">calendar_month</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Martes, 3 de Feb 2026</p>
-<p class="text-xs text-gray-500">20 horas de formación</p>
+<p class="text-sm font-semibold text-text-main">27 al 29 Mar 2026</p>
+<p class="text-xs text-gray-500">3 días</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Presencial Dos Hermanas</p>
-<p class="text-xs text-gray-500">Plazas: 3</p>
+<p class="text-sm font-semibold text-text-main">Presencial</p>
+<p class="text-xs text-gray-500">Dos Hermanas</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">people</span>
+<div>
+<p class="text-sm font-semibold text-text-main">3 alumnos</p>
+<p class="text-xs text-gray-500">Grupo reducido</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">payments</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Precio: 1.250€</p>
-<p class="text-xs text-gray-500">Todo incluido</p>
+<p class="text-sm font-semibold text-text-main">1.450€</p>
+<p class="text-xs text-gray-500">Material incluido</p>
 </div>
 </div>
 </div>
 <div class="space-y-2">
-<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<a href="https://wa.me/34647663121?text=Hola,%20me%20interesa%20la%20Masterclass%20Cejas%20y%20Labios" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
 <span>Reservar por WhatsApp</span>
-</button>
+</a>
+<details class="group mt-4">
+<summary class="flex items-center justify-center gap-1 cursor-pointer list-none text-gray-500 hover:text-primary transition-colors text-sm font-medium">
+<span>Más información</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 text-sm text-gray-600 leading-relaxed space-y-4 bg-white/30 backdrop-blur-sm rounded-xl p-4 border border-primary/10">
+<p>Demostración en <strong>modelo real realizado por Tamara Encuentra</strong>, donde enseñará sus trucos profesionales y la ejecución precisa de las técnicas, que permite resultados elegantes, suaves y diferenciados en cabina.</p>
+<p class="font-bold">Durante la formación aprenderás:</p>
+<ul class="space-y-2">
+<li>✨ <strong>Metodología profesional</strong> aplicada a las técnicas labios acuarela y cejas efecto polvo/velvet</li>
+<li>🎯 Cómo aplicar la técnica según el tipo de piel de cada clienta.</li>
+<li>✍️ Creación de píxeles finos, homogéneos y naturales.</li>
+<li>💫 Movimiento pendular correcto para un acabado <strong>limpio y controlado</strong>.</li>
+<li>🎨 Corrección y neutralización de trabajos anteriores con criterio técnico.</li>
+<li>🤝 Asesoramiento con el cliente para elegir el resultado ideal.</li>
+<li>📐 Posición ideal de la clienta en camilla para mayor precisión y ergonomía.</li>
+<li>📸 Técnica de <strong>fotografía estratégica</strong> para redes sociales y posicionamiento profesional.</li>
+<li>💬 Acceso permanente a mi <strong>grupo privado de apoyo</strong> y resolución de dudas tras la formación.</li>
+</ul>
+<div class="space-y-2 pt-2 border-t border-primary/10">
+<p><strong>🕒 PRIMER y SEGUNDO DÍA:</strong> De 11.00h a 18.00h</p>
+<ul class="list-disc ml-4 space-y-1">
+<li>Presentación y bienvenida</li>
+<li>Teoría especializada impartida por Tamara, basada en experiencia real en cabina</li>
+<li>Diseño y visagismo de cejas y labios</li>
+<li>Práctica intensiva en látex</li>
+<li>Pigmentología aplicada a resultados reales</li>
+<li>Demostración completa de la técnica en modelo real realizada por Tamara</li>
+</ul>
+<p><strong>🕒 TERCER DÍA:</strong></p>
+<ul class="list-disc ml-4 space-y-1">
+<li><strong>De 10:00h a 13:30h:</strong> Prácticas en modelo real guiadas y supervisadas personalmente por Tamara con técnica EFECTO POLVO/VELVET</li>
+<li><strong>De 15:00h a 17:00h:</strong> Segunda práctica en modelo real con corrección individual con técnica LABIOS ACUARELA</li>
+</ul>
+</div>
+<p class="mt-2 text-xs">🎁 <strong>KIT INCLUIDO:</strong> Agujas, dermógrafo, manual de trabajo y teoría, lápiz de diseño, bolígrafo, calibre, regla, hilo de marcado, crema curación, anillo pigmentos.</p>
+<p class="mt-2">Mi objetivo es que cada alumna finalice la formación segura, preparada y capacitada para trabajar con clientas reales desde el primer momento, aplicando protocolos profesionales y resultados de alta calidad.</p>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -535,35 +597,66 @@
 </div>
 </div>
 <div class="p-6 flex-1 flex flex-col">
-<h3 class="text-xl font-bold text-text-main mb-1">Lifting de Pestañas Pro</h3>
-<p class="text-sm text-gray-400 mb-6 font-light">Perfeccionamiento</p>
+<h3 class="text-xl font-bold text-text-main mb-1">Formación DEPILACIÓN CON HILO</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Nivel Principiante</p>
 <div class="space-y-4 mb-8 flex-1">
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">calendar_month</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Lunes, 2 de Mar 2026</p>
-<p class="text-xs text-gray-500">8 horas de formación</p>
+<p class="text-sm font-semibold text-text-main">Sábado, 18 Abr 2026</p>
+<p class="text-xs text-gray-500">1 día</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Presencial Dos Hermanas</p>
-<p class="text-xs text-gray-500">Plazas: 2</p>
+<p class="text-sm font-semibold text-text-main">Presencial</p>
+<p class="text-xs text-gray-500">Dos Hermanas</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">people</span>
+<div>
+<p class="text-sm font-semibold text-text-main">3 alumnos</p>
+<p class="text-xs text-gray-500">Grupo reducido</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">payments</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Precio: 850€</p>
-<p class="text-xs text-gray-500">Certificado incluido</p>
+<p class="text-sm font-semibold text-text-main">250€</p>
+<p class="text-xs text-gray-500">Material incluido</p>
 </div>
 </div>
 </div>
 <div class="space-y-2">
-<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<a href="https://wa.me/34647663121?text=Hola,%20me%20interesa%20el%20curso%20de%20Depilaci%C3%B3n%20con%20Hilo" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
 <span>Reservar por WhatsApp</span>
-</button>
+</a>
+<details class="group mt-4">
+<summary class="flex items-center justify-center gap-1 cursor-pointer list-none text-gray-500 hover:text-primary transition-colors text-sm font-medium">
+<span>Más información</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 text-sm text-gray-600 leading-relaxed space-y-4 bg-white/30 backdrop-blur-sm rounded-xl p-4 border border-primary/10">
+<p>Formación intensiva diseñada para aprender la técnica de depilación con hilo desde cero o perfeccionarla de forma profesional, enfocada a resultados precisos, higiénicos y rentables en cabina.</p>
+<p class="font-bold">¿Qué incluye la formación?</p>
+<ul class="space-y-2">
+<li>📖 Teoría completa sobre la técnica de depilación con hilo</li>
+<li>🧼 Higiene, postura y manejo correcto del hilo</li>
+<li>📐 Diseño y visagismo de cejas</li>
+<li>✨ Demostración en modelo real paso a paso</li>
+<li>🙌 Práctica guiada en modelo</li>
+<li>🎯 Corrección técnica personalizada</li>
+<li>⚡ Control del dolor y técnicas de precisión</li>
+<li>🧬 Adaptación a diferentes tipos de piel y vello</li>
+<li>🏢 Protocolo profesional de servicio en cabina</li>
+<li>🎓 Dossier formativo + certificado (titulación propia)</li>
+<li>💬 Soporte post-curso</li>
+</ul>
+<p class="mt-4">Una formación enfocada a que la alumna salga preparada para trabajar, fidelizar clientas y ofrecer un servicio de alta precisión muy demandado en el sector de la estética.</p>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -577,35 +670,64 @@
 </div>
 </div>
 <div class="p-6 flex-1 flex flex-col">
-<h3 class="text-xl font-bold text-text-main mb-1">Nail Art Avanzado</h3>
-<p class="text-sm text-gray-400 mb-6 font-light">Creatividad al poder</p>
+<h3 class="text-xl font-bold text-text-main mb-1">Formación LAMINADO CEJAS</h3>
+<p class="text-sm text-gray-400 mb-6 font-light">Nivel Principiante</p>
 <div class="space-y-4 mb-8 flex-1">
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">calendar_month</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Miércoles, 11 de Mar 2026</p>
-<p class="text-xs text-gray-500">8 horas de formación</p>
+<p class="text-sm font-semibold text-text-main">Sábado, 25 Abr 2026</p>
+<p class="text-xs text-gray-500">1 día</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Presencial Dos Hermanas</p>
-<p class="text-xs text-gray-500">Plazas: 2</p>
+<p class="text-sm font-semibold text-text-main">Presencial</p>
+<p class="text-xs text-gray-500">Dos Hermanas</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">people</span>
+<div>
+<p class="text-sm font-semibold text-text-main">3 alumnos</p>
+<p class="text-xs text-gray-500">Grupo reducido</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl mt-0.5">payments</span>
 <div>
-<p class="text-sm font-semibold text-text-main">Precio: 650€</p>
+<p class="text-sm font-semibold text-text-main">300€</p>
 <p class="text-xs text-gray-500">Material incluido</p>
 </div>
 </div>
 </div>
 <div class="space-y-2">
-<button class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
+<a href="https://wa.me/34647663121?text=Hola,%20me%20interesa%20el%20curso%20de%20Laminado%20de%20Cejas" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-sm group-hover:shadow-md">
 <span>Reservar por WhatsApp</span>
-</button>
+</a>
+<details class="group mt-4">
+<summary class="flex items-center justify-center gap-1 cursor-pointer list-none text-gray-500 hover:text-primary transition-colors text-sm font-medium">
+<span>Más información</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 text-sm text-gray-600 leading-relaxed space-y-4 bg-white/30 backdrop-blur-sm rounded-xl p-4 border border-primary/10">
+<p class="font-bold">¿Qué incluye la formación?</p>
+<ul class="space-y-2">
+<li>📖 Teoría completa paso a paso</li>
+<li>🔍 Diagnóstico correcto y tipos de cejas</li>
+<li>✨ Demostración en modelo real</li>
+<li>🙌 Práctica supervisada por alumna</li>
+<li>📐 Diseño y acabado profesional</li>
+<li>🪄 Trucos técnicos para evitar encrespado</li>
+<li>💶 Asesoramiento sobre precios y rentabilidad del servicio</li>
+<li>🎓 Dossier formativo + certificado</li>
+<li>💬 Soporte post-curso</li>
+<li>🎁 Incluye material y productos</li>
+</ul>
+<p class="mt-4">Una formación diseñada para que salgas preparada para trabajar desde el primer día y ofrecer un servicio de alta calidad en tu centro.</p>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -695,43 +817,70 @@
 </h2>
 </div>
 <div class="space-y-4">
-<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
-<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-<span class="font-medium text-text-main text-lg">¿Necesito experiencia previa?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
-</summary>
-<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
-                    Para los cursos de iniciación no necesitas ninguna experiencia. Empezamos desde cero absoluto. Para los Masterclass avanzados, sí requerimos titulación previa.
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿Necesito experiencia previa?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            No es imprescindible. Nuestras formaciones están diseñadas tanto para principiantes como para profesionales que desean perfeccionarse.
+                        </div>
+                    </details>
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿Las prácticas se realizan en modelo real?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            Sí. Todas las alumnas realizan práctica real supervisada para adquirir seguridad y técnica profesional.
+                        </div>
+                    </details>
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿Se entrega certificado al finalizar?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            Sí, se entrega certificado de formación (titulación propia) al finalizar el curso.
+                        </div>
+                    </details>
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿El material está incluido durante la formación?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            Sí, el material necesario para la práctica está incluido durante el curso y es para el alumno.
+                        </div>
+                    </details>
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿Las plazas son limitadas?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            Sí, trabajamos en grupos reducidos para garantizar atención personalizada y mejor aprendizaje.
+                        </div>
+                    </details>
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿Saldré preparada para trabajar?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            Sí, la formación está enfocada a que la alumna salga preparada para ofrecer el servicio de forma profesional.
+                        </div>
+                    </details>
+                    <details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <span class="font-medium text-text-main text-lg">¿Incluye soporte después del curso?</span>
+                            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
+                            Sí, ofrecemos soporte post-formación para resolver dudas y acompañar a la alumna en sus inicios y contacto vía whastapp con Tamara.
+                        </div>
+                    </details>
                 </div>
-</details>
-<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
-<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-<span class="font-medium text-text-main text-lg">¿El material está incluido?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
-</summary>
-<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
-                    ¡Sí! Todos nuestros cursos presenciales incluyen un Kit Profesional valorado en más de 300€ para que puedas empezar a trabajar desde el primer día.
-                </div>
-</details>
-<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
-<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-<span class="font-medium text-text-main text-lg">¿Puedo pagar a plazos?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
-</summary>
-<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
-                    Ofrecemos financiación propia en 3 cuotas sin intereses para cursos superiores a 500€. Contáctanos para más detalles.
-                </div>
-</details>
-<details class="group bg-gray-50 rounded-2xl overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 [&amp;_summary::-webkit-details-marker]:hidden">
-<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-<span class="font-medium text-text-main text-lg">¿El diploma es oficial?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">add_circle</span>
-</summary>
-<div class="px-6 pb-6 text-gray-500 font-light leading-relaxed">
-                    Entregamos un certificado privado de Tamara Academy que acredita tus horas de formación y práctica, altamente valorado en el sector por nuestro nivel de exigencia.
-                </div>
-</details>
-</div>
 </div>
 </section>
 <footer class="bg-stone-dark text-primary-light py-20 px-6 rounded-t-[3rem] mt-12">
